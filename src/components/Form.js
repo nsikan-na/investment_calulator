@@ -44,7 +44,6 @@ export default function Investment() {
           className="input text-xl pl-4 py-2 rounded-md w-5/12 mt-1 mb-5"
           type="number"
           name="curAge"
-          value="20"
         />
         <br />
         <label className="font-semibold text-lg">
@@ -55,7 +54,6 @@ export default function Investment() {
           className="input text-xl pl-4 py-2 rounded-md w-5/12 mt-1 mb-1"
           type="number"
           name="retireAge"
-          value="50"
         />
         <p className="text-sm font-semibold text-gray-500">
           If you were born in 1960 or later, 67 years old is the age at which
@@ -70,7 +68,6 @@ export default function Investment() {
           className="input text-xl pl-8 py-2 rounded-md w-9/12 mt-1 mb-1"
           type="number"
           name="principal"
-          value="4000"
         />
         <p className="text-sm font-semibold text-gray-500">
           This should be the total of all your investment accounts including
@@ -85,7 +82,6 @@ export default function Investment() {
           className="input text-xl pl-8 py-2 rounded-md w-9/12 mt-1 mb-1"
           type="number"
           name="monthlyDeposit"
-          value="1500"
         />
         <p className="text-sm font-semibold text-gray-500">
           This is the amount you invest each month. We recommend investing 15%
@@ -100,7 +96,6 @@ export default function Investment() {
           className="input text-xl pl-8 py-2 rounded-md w-9/12 mt-1 mb-1"
           type="number"
           name="interestRate"
-          value="10"
         />
         <p className="text-sm font-semibold text-gray-500">
           This is the return your investment will generate over time.
