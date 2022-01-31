@@ -11,16 +11,16 @@ export default function Investment() {
       Math.round(
         principal.value *
           Math.pow(
-            1 + (interestRate.value/100) / 12,
+            1 + interestRate.value / 100 / 12,
             12 * (retireAge.value - curAge.value)
           ) +
           monthlyDeposit.value *
             ((Math.pow(
-              1 + (interestRate.value/100) / 12,
+              1 + interestRate.value / 100 / 12,
               12 * (retireAge.value - curAge.value)
             ) -
               1) /
-              ((interestRate.value/100) / 12))
+              (interestRate.value / 100 / 12))
       )
     );
     if (!investment) return;
@@ -102,12 +102,12 @@ export default function Investment() {
           Historically, the 30-year return of the S&P 500 has been roughly
           10-12%.
           <a href="http://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html">
-            <span className="text-blue-700 font-bold text-xs">
-              1
-            </span>
+            <span className="text-blue-700 font-bold text-xs">1</span>
           </a>
         </p>
-        <button className="text-white font-extrabold bg-sky-600 px-7 py-3 rounded-md my-6 shadow">Calculate</button>
+        <button className="text-white font-extrabold bg-sky-600 px-7 py-3 rounded-md my-6 shadow">
+          Calculate
+        </button>
         <div className="p-0.5 bg-lime-300"></div>
       </form>
     </div>
