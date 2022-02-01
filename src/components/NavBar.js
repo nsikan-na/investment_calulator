@@ -6,15 +6,15 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 export default function NavBar() {
   return (
-    <div className='w-screen py-2 shadow-md'>
-      <div className="flex">
-        <img src="/images/logo.jpg" className='flex-3 object-contain'/>
-        
-        <SearchIcon className='text-sky-600 m-3 scale-125'/>
-
+    <div className='w-screen py-2 shadow-md '>
+      <div className='flex'>
+        <img src="/images/logo.jpg" className='object-contain justify-start left-0 '/>
+        <div className='w-screen justify-end flex'>
+        <SearchIcon className='text-sky-600 m-3 scale-125 justify-end '/>
+        <nav className="text-sky-600 font-bold my-3 mr-4 text-lg right-0 justify-end md:mr-7 md:ml-3 md:text-lg" >MENU</nav>
         {/* <ArrowForwardIosIcon/> */}
 
-          <nav className="text-sky-600 font-bold my-3 mx-2 text-xl right-0">MENU</nav>
+          
           {/* <CloseIcon/> */}
           {/* <div>
           <li>Guided Plans</li>
@@ -28,7 +28,8 @@ export default function NavBar() {
           <div>Sign In</div>
           <button>Get Started</button>
         </div> */}
-      </div>
+    </div>
+    </div>
     </div>
   );
 }

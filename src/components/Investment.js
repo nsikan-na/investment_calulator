@@ -7,11 +7,13 @@ import Footer from './Footer'
 import Header from './Header'
 
 export default function Investment() {
-  return <div className="bg-neutral-50">
+  return <div className="bg-neutral-50 ">
       <NavBar/>
       <Header/>
-      <Form/>
+      <div className="md:flex ">
+      <Form />
       <Results />
+      </div>
       <CTA/>
       <Footer/>
   </div>;

@@ -7,37 +7,49 @@ import CopyrightIcon from "@mui/icons-material/Copyright";
 
 export default function Footer() {
   return (
-    <div className="mt-14 pb-20 bg-gray-200 pt-10">
+    <div className="mt-14 pb-20 bg-gray-200 pt-10 md:pb-10">
       <div>
-        <img src="/images/logo-fade.png" className="w-9/12 mx-auto mb-8" />
-        <div className="text-blue-700 grid grid-cols-3 text-sm mx-auto w-10/12 gap-x-1 text-center font-medium">
+        <img
+          src="/images/logo-fade.png"
+          className="w-9/12 mx-auto mb-8 md:w-3/12 md:mb-4"
+        />
+        <div className="text-blue-700 text-sm mx-auto w-10/12 text-center font-medium flex flex-wrap justify-evenly space-x-3 md:space-x-1 ">
           <span>Get Started</span>
           <span>Careers</span>
           <span>Contact Us</span>
           <span>Newsletter</span>
           <span>NewsRoom</span>
           <span>Ramsey Press</span>
-          <span></span>
           <span>About</span>
         </div>
-        <div className="text-center pt-10 pb-14 space-x-8">
-          <span className="bg-gray-300 rounded-full p-2"><FacebookIcon /></span>
-          <span className="bg-gray-300 rounded-full p-2"><TwitterIcon /></span>
-          <span className="bg-gray-300 rounded-full p-2"><YouTubeIcon /></span>
-          <span className="bg-gray-300 rounded-full p-2"><InstagramIcon /></span>
+        <div className="text-center pt-10 pb-14 flex justify-center space-x-6 md:space-x-4 md:pt-7 md:pb-10">
+          <span className="bg-gray-300 rounded-full p-2">
+            <FacebookIcon />
+          </span>
+          <span className="bg-gray-300 rounded-full p-2">
+            <TwitterIcon />
+          </span>
+          <span className="bg-gray-300 rounded-full p-2">
+            <YouTubeIcon />
+          </span>
+          <span className="bg-gray-300 rounded-full p-2">
+            <InstagramIcon />
+          </span>
         </div>
       </div>
       <div>
-        <div className="py-0.5 bg-gray-300 w-11/12 mx-auto"></div>
-        <div className="pt-3 text-xs w-11/12 mx-auto mb-3">
-          <span>Debit Card Policy</span>
-          <span className="mx-2">|</span>
-          <span>Privacy Policy</span>
-          <span className="mx-2">|</span>
-          <span>Terms of Use</span>
-        </div>
-        <div className="text-xs w-11/12 mx-auto ">
-          @ 2022 Lampo spancensing, LLC. All rights reserved.
+        <div className="pt-0.5 bg-gray-300 w-11/12 mx-auto"></div>
+        <div className="pt-3 text-xs w-11/12 mx-auto mb-3 font-medium flex flex-col justify-center md:flex-row ">
+          <div className="  text-center my-3 md:w-full md:text-left ">
+            <span>Debit Card Policy</span>
+            <span className="mx-2">|</span>
+            <span>Privacy Policy</span>
+            <span className="mx-2">|</span>
+            <span>Terms of Use</span>
+          </div>
+          <div className="text-xs font-medium text-center w-full  md:text-right md:my-3">
+            @ 2022 Lampo spancensing, LLC. All rights reserved.
+          </div>
         </div>
       </div>
     </div>

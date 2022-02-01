@@ -2,7 +2,7 @@ import React from "react";
 
 export default function CTA() {
   return (
-    <div>
+    <div >
       <div
         style={{ backgroundImage: `url(/images/cta1.jpg)` }}
         className="text-center  text-white bg-no-repeat bg-cover"
@@ -21,17 +21,25 @@ export default function CTA() {
       </div>
       <div className=" text-center text-lg w-9/12 mx-auto pt-8 pb-14">
         <div className="font-bold">Retirement and Investment Guidance</div>
-        <img src='/images/list2.jpg' className='mx-auto'/>
-        <div className="font-medium">Custom retirement and investment plans</div>
-        <img src='/images/people.jpg' className='mx-auto'/>
-        <div className="font-medium">Real-life,helpful people you can call</div>
-        <img src='/images/square.jpg' className='mx-auto'/>
-        <div className="font-medium">Hundreds of investment options</div>
-        <img src='/images/hands.jpg' className='mx-auto'/>
-        <div className="font-medium">Zero hard-sell pitches</div>
+        <div className='inline sm:flex justify-center md:my-4 '>
+        <img src='/images/list2.jpg' className='mx-auto md:m-0'/>
+        <div className="font-medium pt-2 md:ml-6">Custom retirement and investment plans</div>
+        </div>
+        <div className='inline sm:flex justify-center  md:my-4  '>
+        <img src='/images/people.jpg' className='mx-auto md:m-0'/>
+        <div className="font-medium pt-2 md:ml-6">Real-life,helpful people you can call</div>
+        </div>
+        <div className='inline sm:flex justify-center  md:my-4  '>
+        <img src='/images/square.jpg' className='mx-auto md:m-0'/>
+        <div className="font-medium pt-2 md:ml-6">Hundreds of investment options</div>
+        </div>
+        <div className='inline sm:flex justify-center   md:my-4 '>
+        <img src='/images/hands.jpg' className='mx-auto md:m-0'/>
+        <div className="font-medium pt-2 md:ml-6" >Zero hard-sell pitches</div>
+        </div>
       </div>
-      <div className="w-10/12 mx-auto">
-        <h2 className="font-bold text-2xl pb-6">What is an investment calculator for?</h2>
+      <div className="w-11/12 mx-auto">
+        <h2 className="font-bold text-2xl pb-6 ">What is an investment calculator for?</h2>
         <p className="font-medium">
           An investment calculator is a simple way to estimate how your money
           will grow if you keep investing at the rate you're going right now.
