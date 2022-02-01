@@ -64,7 +64,7 @@ export default function Results() {
             </div>
           </div>
         </div>
-        <div className="text-center shadow pb-12 md:grid md:w-11/12  md:shadow-none md:grid-cols-3 md:ml-3 gap-1">
+        <div className="text-center shadow pb-12 md:grid md:w-11/12  md:shadow-none md:grid-cols-3 md:ml-3 gap-1 lg:-my-7">
           <div className="">
             <div className="font-bold text-lg text-gray-500 md:mt-7 md:text-base md:align-center">
               INITIAL BALANCE
@@ -104,9 +104,10 @@ export default function Results() {
       </div>
       <div className="w-9/12 mx-auto pb-10 ">
         <h2 className="font-bold text-4xl my-7 md:text-3xl">What if I...</h2>
-        <div className="pb-5">
-          <img src="/images/money2.jpg" className=" mx-auto mb-4 md:scale-75 md:mb-0" />
-          <div className="font-bold text-xl text-gray-700 mb-2 md:text-lg">
+        <div className='lg:grid lg:grid-cols-3 '>
+        <div className="pb-5 ">
+          <img src="/images/money2.jpg" className=" mx-auto mb-4 md:scale-75 md:mb-0 lg:pb-3 xl:pb-0" />
+          <div className="font-bold text-xl text-gray-700 mb-2 md:text-lg lg:pb-4 xl:pb-0">
             SAVED AN EXTRA $100 PER MONTH.
           </div>
           <p className=" text-gray-700 mb-2 font-medium">
@@ -145,6 +146,7 @@ export default function Results() {
             <span className="font-bold text-2xl inline "> 89,603</span>
           </div>
           <p className="font-medium">in additional growth</p>
+        </div>
         </div>
       </div>
     </div>

@@ -28,7 +28,7 @@ export default function Investment() {
     console.log(nf.format(investment));
   };
   return (
-    <div className="w-10/12 mx-auto md:px-3 md:w-4/12 md:mx-0" >
+    <div className="w-10/12 mx-auto md:px-3 md:w-4/12 md:mx-0 lg:w-6/12 " >
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -41,7 +41,7 @@ export default function Investment() {
         <label className="font-bold ">Enter your current age.</label>
         <br />
         <input
-          className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-5 md:w-6/12"
+          className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-5 md:w-6/12 lg:w-4/12"
           type="number"
           name="curAge"
         />
@@ -51,7 +51,7 @@ export default function Investment() {
         </label>
         <br />
         <input
-          className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-1 md:w-6/12"
+          className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-1 md:w-6/12 lg:w-4/12"
           type="number"
           name="retireAge"
         />
@@ -65,7 +65,7 @@ export default function Investment() {
         </label>
         <br />
         <input
-          className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full"
+          className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12"
           type="number"
           name="principal"
         />
@@ -79,7 +79,7 @@ export default function Investment() {
         </label>
         <br />
         <input
-          className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full"
+          className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12"
           type="number"
           name="monthlyDeposit"
         />
@@ -93,7 +93,7 @@ export default function Investment() {
         </label>
         <br />
         <input
-          className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full"
+          className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12"
           type="number"
           name="interestRate"
         />
