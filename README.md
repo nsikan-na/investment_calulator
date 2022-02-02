@@ -8,6 +8,7 @@ This is Ramsey Solution's investing calculator Clone.
 
 - React.js (html,javascript)
 - Tailwind.css (css)
+- Material UI
 
 
 
