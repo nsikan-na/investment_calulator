@@ -7,7 +7,7 @@ import './Input.css'
 
 export default function NavBar() {
   return (
-    <div className="w-screen py-2 shadow-md ">
+    <div className="w-screen py-2 shadow-md 2xl:w-7/12 2xl:mx-auto 2xl:shadow-none">
       <div className="flex xl:hidden">
         <img
           src="/images/logo.jpg"
@@ -38,7 +38,7 @@ export default function NavBar() {
 
       <div className="hidden xl:block mx-32 ">
         <div className="flex ">
-          <div className="py-3 w-full ">
+          <div className="py-3 w-full  ">
             <img
               src="/images/logo.jpg"
               className="object-contain scale-125 "
@@ -47,7 +47,7 @@ export default function NavBar() {
           <div className="  self-center flex w-9/12 justify-end">
             <input type="text" placeholder="Search" className="font-medium rounded-md input px-3 py-2"/>
             <a className=" text-sky-700 font-bold text-md w-full text-center pt-2">Sign In</a>
-            <button className="text-white bg-sky-700 px-1 rounded-md  -mt-2 ml-6 w-full font-bold">Get Started</button>
+            <button className="text-white bg-sky-700 px-1 rounded-md  -mt-2 ml-6 w-full font-bold 2xl:whitespace-nowrap">Get Started</button>
           </div>
         </div>
         <div>

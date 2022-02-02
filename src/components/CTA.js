@@ -2,10 +2,13 @@ import React from "react";
 
 export default function CTA() {
   return (
-    <div className="xl:bg-gray-200 ">
+    <div className="2xl:w-7/12">
+    <div className="xl:bg-gray-200 2xl:w-screen">
+
+    <div className="2xl:w-7/12 2xl:mx-auto">
       <div
         style={{ backgroundImage: `url(/images/cta1.jpg)` }}
-        className="text-center  text-white bg-no-repeat bg-cover  xl:mx-24  "
+        className="text-center  text-white bg-no-repeat bg-cover xl:mx-24 "
       >
         <div className=" xl:w-6/12 xl:text-left xl:px-auto xl:py-16  xl:mx-auto">
           <h2 className="w-10/12 font-bold text-4xl pt-10 pb-6 mx-auto ">
@@ -21,7 +24,7 @@ export default function CTA() {
           </button>
         </div>
       </div>
-      <div className="xl:bg-white xl:mx-24 xl:mb-24">
+      <div className="xl:bg-white xl:mx-24 xl:mb-24 2xl:mb-16 ">
       <div className=" text-center text-lg w-9/12 mx-auto pt-8 pb-14 ">
         <div className="font-bold ">Retirement and Investment Guidance</div>
         <div className="inline sm:flex justify-center md:my-4">
@@ -46,10 +49,11 @@ export default function CTA() {
           <img src="/images/hands.jpg" className="mx-auto md:m-0 xl:-ml-36" />
           <div className="font-medium pt-2 md:ml-6">Zero hard-sell pitches</div>
         </div>
+        </div>
       </div >
       </div>
       <div className="w-11/12 mx-auto xl:bg-white xl:w-full ">
-        <div className="xl:w-9/12 xl:mx-auto">
+        <div className="xl:w-9/12 xl:mx-auto 2xl:w-5/12">
         <h2 className="font-bold text-2xl pb-6 xl:text-3xl xl:pt-10 ">
           What is an investment calculator for?
         </h2>
@@ -86,7 +90,9 @@ export default function CTA() {
           </p>
         </div>
       </div>
-      </div>
+    
+    </div>
+    </div>
     </div>
   );
 }

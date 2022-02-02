@@ -7,7 +7,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 export default function Footer() {
   return (
     <div className="mt-14 pb-20 bg-gray-200 pt-10 md:pb-10 ">
-      <div className="xl:flex  xl:mx-auto">
+      <div className="xl:flex  xl:mx-auto 2xl:w-7/12">
         <img
           src="/images/logo-fade.png"
           className="w-9/12 mx-auto mb-8 md:w-3/12 md:mb-4r xl:scale-75  "
@@ -38,7 +38,7 @@ export default function Footer() {
       </div>
       <div>
         <div className="pt-0.5 bg-gray-300 w-11/12 mx-auto"></div>
-        <div className="pt-3 text-xs w-11/12 mx-auto mb-3 font-medium flex flex-col justify-center md:flex-row ">
+        <div className="pt-3 text-xs w-11/12 mx-auto mb-3 font-medium flex flex-col justify-center md:flex-row 2xl:w-7/12">
           <div className="  text-center my-3 md:w-full md:text-left ">
             <span>Debit Card Policy</span>
             <span className="mx-2">|</span>
