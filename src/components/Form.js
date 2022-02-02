@@ -55,7 +55,7 @@ export default function Investment() {
           type="number"
           name="retireAge"
         />
-        <p className="text-sm font-semibold text-gray-500">
+        <p className="text-sm font-bold text-gray-500">
           If you were born in 1960 or later, 67 years old is the age at which
           you can retire with full benefits.
         </p>
@@ -97,12 +97,12 @@ export default function Investment() {
           type="number"
           name="interestRate"
         />
-        <p className="text-sm font-semibold text-gray-500">
+        <p className="text-sm font-bold text-gray-500">
           This is the return your investment will generate over time.
           Historically, the 30-year return of the S&P 500 has been roughly
           10-12%.
           <a href="http://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html">
-            <span className="text-sky-700 font-bold text-xs">1</span>
+            <span className="text-blue-700 font-bold text-xs">1</span>
           </a>
         </p>
         <button className="text-white font-extrabold bg-sky-600 px-7 py-3 rounded-md my-6 shadow md:px-5 md:py-2">
