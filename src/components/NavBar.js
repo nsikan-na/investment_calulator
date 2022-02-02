@@ -38,7 +38,7 @@ export default function NavBar() {
 
       <div className="hidden xl:block mx-32 ">
         <div className="flex ">
-          <div className="py-3 w-full">
+          <div className="py-3 w-full ">
             <img
               src="/images/logo.jpg"
               className="object-contain scale-125 "

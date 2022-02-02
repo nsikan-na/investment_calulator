@@ -21,31 +21,33 @@ export default function CTA() {
           </button>
         </div>
       </div>
+      <div className="xl:bg-white xl:mx-24 xl:mb-24">
       <div className=" text-center text-lg w-9/12 mx-auto pt-8 pb-14 ">
-        <div className="font-bold">Retirement and Investment Guidance</div>
-        <div className="inline sm:flex justify-center md:my-4 ">
-          <img src="/images/list2.jpg" className="mx-auto md:m-0" />
+        <div className="font-bold ">Retirement and Investment Guidance</div>
+        <div className="inline sm:flex justify-center md:my-4">
+          <img src="/images/list2.jpg" className="mx-auto md:m-0 " />
           <div className="font-medium pt-2 md:ml-6">
             Custom retirement and investment plans
           </div>
         </div>
         <div className="inline sm:flex justify-center  md:my-4  ">
-          <img src="/images/people.jpg" className="mx-auto md:m-0" />
+          <img src="/images/people.jpg" className="mx-auto md:m-0 xl:-ml-10" />
           <div className="font-medium pt-2 md:ml-6">
             Real-life,helpful people you can call
           </div>
         </div>
         <div className="inline sm:flex justify-center  md:my-4  ">
-          <img src="/images/square.jpg" className="mx-auto md:m-0" />
+          <img src="/images/square.jpg" className="mx-auto md:m-0 xl:-ml-16" />
           <div className="font-medium pt-2 md:ml-6">
             Hundreds of investment options
           </div>
         </div>
         <div className="inline sm:flex justify-center   md:my-4 ">
-          <img src="/images/hands.jpg" className="mx-auto md:m-0" />
+          <img src="/images/hands.jpg" className="mx-auto md:m-0 xl:-ml-36" />
           <div className="font-medium pt-2 md:ml-6">Zero hard-sell pitches</div>
         </div>
       </div >
+      </div>
       <div className="w-11/12 mx-auto xl:bg-white xl:w-full ">
         <div className="xl:w-9/12 xl:mx-auto">
         <h2 className="font-bold text-2xl pb-6 xl:text-3xl xl:pt-10 ">
