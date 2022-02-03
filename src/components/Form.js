@@ -1,34 +1,124 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { ResultContext } from "../Context/ResultContext";
 import "./Input.css";
 
 export default function Investment() {
-  const [investment, setInvestment] = useState("");
+  const {
+    investment,
+    setYears,
+    setInvestment,
+    setInvestFood,
+    years,
+    contributions,
+    setInvestMoney,
+    setInitialBal,
+    setContributions,
+    setGrowth,
+    setInvestCoffee,
+    growth,
+    initialBal,
+    initialBalPer,
+    contributionsPer,
+    setContributionsPer,
+    setGrowthPer,
+    setInitialBalPer,
+  } = useContext(ResultContext);
   const calcInvestment = (e) => {
     const [curAge, retireAge, principal, monthlyDeposit, interestRate] =
       e.target;
 
     setInvestment(
-      Math.round(
-        principal.value *
-          Math.pow(
+      principal.value *
+        Math.pow(
+          1 + interestRate.value / 100 / 12,
+          12 * (retireAge.value - curAge.value)
+        ) +
+        monthlyDeposit.value *
+          ((Math.pow(
             1 + interestRate.value / 100 / 12,
             12 * (retireAge.value - curAge.value)
-          ) +
-          monthlyDeposit.value *
-            ((Math.pow(
+          ) -
+            1) /
+            (interestRate.value / 100 / 12))
+    );
+    setInvestMoney(
+      Intl.NumberFormat().format(
+        Math.ceil(
+          principal.value *
+            Math.pow(
               1 + interestRate.value / 100 / 12,
               12 * (retireAge.value - curAge.value)
-            ) -
-              1) /
-              (interestRate.value / 100 / 12))
+            ) +
+            (parseInt(monthlyDeposit.value) + 100) *
+              ((Math.pow(
+                1 + interestRate.value / 100 / 12,
+                12 * (retireAge.value - curAge.value)
+              ) -
+                1) /
+                (interestRate.value / 100 / 12)) -
+            investment
+        )
       )
     );
-    if (!investment) return;
-    const nf = Intl.NumberFormat();
-    console.log(nf.format(investment));
+    setInvestCoffee(
+      Intl.NumberFormat().format(
+        Math.ceil(
+          principal.value *
+            Math.pow(
+              1 + interestRate.value / 100 / 12,
+              12 * (retireAge.value - curAge.value)
+            ) +
+            (parseInt(monthlyDeposit.value) + 128) *
+              ((Math.pow(
+                1 + interestRate.value / 100 / 12,
+                12 * (retireAge.value - curAge.value)
+              ) -
+                1) /
+                (interestRate.value / 100 / 12)) -
+            investment
+        )
+      )
+    );
+    setInvestFood(
+      Intl.NumberFormat().format(
+        Math.ceil(
+          principal.value *
+            Math.pow(
+              1 + interestRate.value / 100 / 12,
+              12 * (retireAge.value - curAge.value)
+            ) +
+            (parseInt(monthlyDeposit.value) + 200) *
+              ((Math.pow(
+                1 + interestRate.value / 100 / 12,
+                12 * (retireAge.value - curAge.value)
+              ) -
+                1) /
+                (interestRate.value / 100 / 12)) -
+            investment
+        )
+      )
+    );
+    setYears(retireAge.value - curAge.value);
+    setInitialBal(Intl.NumberFormat().format(Math.ceil(principal.value)));
+    setContributions(
+      Intl.NumberFormat().format(Math.ceil(years * 12 * monthlyDeposit.value))
+    );
+    setGrowth(
+      Intl.NumberFormat().format(
+        Math.ceil(investment - Math.ceil(years * 12 * monthlyDeposit.value))
+      )
+    );
+    setInitialBalPer(Math.ceil((principal.value / Number(investment)) * 100));
+    setContributionsPer(
+      Math.ceil(
+        ((years * 12 * monthlyDeposit.value) / Number(investment)) * 100
+      )
+    );
+    setGrowthPer(100 - (initialBalPer + contributionsPer));
   };
+
   return (
-    <div className="w-10/12 mx-auto md:px-3 md:w-4/12 md:mx-0 lg:w-6/12 xl:w-5/12 xl:bg-white" >
+    <div className="w-10/12 mx-auto md:px-3 md:w-4/12 md:mx-0 lg:w-6/12 xl:w-5/12 xl:bg-white">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -46,9 +136,7 @@ export default function Investment() {
           name="curAge"
         />
         <br />
-        <label className="font-bold ">
-          Enter the age you plan to retire.
-        </label>
+        <label className="font-bold ">Enter the age you plan to retire.</label>
         <br />
         <input
           className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-1 md:w-6/12 lg:w-4/12 xl:w-3/12"

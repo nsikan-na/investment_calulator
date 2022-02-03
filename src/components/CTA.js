@@ -1,6 +1,8 @@
-import React from "react";
+import React,{useContext} from "react";
+import {ResultContext} from '../Context/ResultContext'
 
 export default function CTA() {
+  const {investment}=useContext(ResultContext)
   return (
     <div className="2xl:w-7/12">
     <div className="xl:bg-gray-200 2xl:w-screen">
@@ -12,7 +14,7 @@ export default function CTA() {
       >
         <div className=" xl:w-6/12 xl:text-left xl:px-auto xl:py-16  xl:mx-auto">
           <h2 className="w-10/12 font-bold text-4xl pt-10 pb-6 mx-auto ">
-            Now build a plan to reach $1,040,557
+            Now build a plan to reach {`$${Intl.NumberFormat().format(Math.ceil(investment))}.`}
           </h2>
           <p className="w-10/12 font-semibold mx-auto">
             Now that you've calculated your estimated retirement savings, your
