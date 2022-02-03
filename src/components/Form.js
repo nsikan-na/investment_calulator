@@ -22,6 +22,7 @@ export default function Investment() {
   const [principal, setPrincipal] = useState('');
   const [monthlyDeposit, setMonthlyDeposit] = useState('');
   const [interestRate, setInterestRate] = useState('');
+  const [handleSubmit,setHandleSubmit]=useState(false)
 
 
   useEffect(()=>{
@@ -40,7 +41,7 @@ export default function Investment() {
     );
 
 
-},[curAge,retireAge,principal,monthlyDeposit,interestRate])
+},[handleSubmit])
 
   useEffect(() => {
     if(!investment)return
@@ -129,6 +130,7 @@ export default function Investment() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
+          setHandleSubmit(!handleSubmit)
         }}
       >
         <h2 className="font-bold text-4xl pt-10 pb-6">
