@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { ResultContext } from "../Context/ResultContext";
 import "./Input.css";
 
@@ -8,54 +8,54 @@ export default function Investment() {
     setYears,
     setInvestment,
     setInvestFood,
-    years,
-    contributions,
     setInvestMoney,
     setInitialBal,
     setContributions,
     setGrowth,
     setInvestCoffee,
-    growth,
-    initialBal,
-    initialBalPer,
-    contributionsPer,
     setContributionsPer,
     setGrowthPer,
     setInitialBalPer,
   } = useContext(ResultContext);
-  const calcInvestment = (e) => {
-    const [curAge, retireAge, principal, monthlyDeposit, interestRate] =
-      e.target;
+  const [curAge, setCurAge] = useState('');
+  const [retireAge, setRetireAge] = useState(67);
+  const [principal, setPrincipal] = useState('');
+  const [monthlyDeposit, setMonthlyDeposit] = useState('');
+  const [interestRate, setInterestRate] = useState('');
 
+
+  useEffect(()=>{
+    if(!curAge)return
+    if (!retireAge)return
+    if(!principal)return
+    if(!monthlyDeposit)return
+    if(!interestRate)return
     setInvestment(
-      principal.value *
-        Math.pow(
-          1 + interestRate.value / 100 / 12,
-          12 * (retireAge.value - curAge.value)
-        ) +
-        monthlyDeposit.value *
-          ((Math.pow(
-            1 + interestRate.value / 100 / 12,
-            12 * (retireAge.value - curAge.value)
-          ) -
+      principal *
+        Math.pow(1 + interestRate / 100 / 12, 12 * (retireAge - curAge)) +
+        monthlyDeposit *
+          ((Math.pow(1 + interestRate / 100 / 12, 12 * (retireAge - curAge)) -
             1) /
-            (interestRate.value / 100 / 12))
+            (interestRate / 100 / 12))
     );
+
+
+},[curAge,retireAge,principal,monthlyDeposit,interestRate])
+
+  useEffect(() => {
+    if(!investment)return
     setInvestMoney(
       Intl.NumberFormat().format(
         Math.ceil(
-          principal.value *
-            Math.pow(
-              1 + interestRate.value / 100 / 12,
-              12 * (retireAge.value - curAge.value)
-            ) +
-            (parseInt(monthlyDeposit.value) + 100) *
+          principal *
+            Math.pow(1 + interestRate / 100 / 12, 12 * (retireAge - curAge)) +
+            (parseInt(monthlyDeposit) + 100) *
               ((Math.pow(
-                1 + interestRate.value / 100 / 12,
-                12 * (retireAge.value - curAge.value)
+                1 + interestRate / 100 / 12,
+                12 * (retireAge - curAge)
               ) -
                 1) /
-                (interestRate.value / 100 / 12)) -
+                (interestRate / 100 / 12)) -
             investment
         )
       )
@@ -63,18 +63,15 @@ export default function Investment() {
     setInvestCoffee(
       Intl.NumberFormat().format(
         Math.ceil(
-          principal.value *
-            Math.pow(
-              1 + interestRate.value / 100 / 12,
-              12 * (retireAge.value - curAge.value)
-            ) +
-            (parseInt(monthlyDeposit.value) + 128) *
+          principal *
+            Math.pow(1 + interestRate / 100 / 12, 12 * (retireAge - curAge)) +
+            (parseInt(monthlyDeposit) + 128) *
               ((Math.pow(
-                1 + interestRate.value / 100 / 12,
-                12 * (retireAge.value - curAge.value)
+                1 + interestRate / 100 / 12,
+                12 * (retireAge - curAge)
               ) -
                 1) /
-                (interestRate.value / 100 / 12)) -
+                (interestRate / 100 / 12)) -
             investment
         )
       )
@@ -82,47 +79,56 @@ export default function Investment() {
     setInvestFood(
       Intl.NumberFormat().format(
         Math.ceil(
-          principal.value *
-            Math.pow(
-              1 + interestRate.value / 100 / 12,
-              12 * (retireAge.value - curAge.value)
-            ) +
-            (parseInt(monthlyDeposit.value) + 200) *
+          principal *
+            Math.pow(1 + interestRate / 100 / 12, 12 * (retireAge - curAge)) +
+            (parseInt(monthlyDeposit) + 200) *
               ((Math.pow(
-                1 + interestRate.value / 100 / 12,
-                12 * (retireAge.value - curAge.value)
+                1 + interestRate / 100 / 12,
+                12 * (retireAge - curAge)
               ) -
                 1) /
-                (interestRate.value / 100 / 12)) -
+                (interestRate / 100 / 12)) -
             investment
         )
       )
     );
-    setYears(retireAge.value - curAge.value);
-    setInitialBal(Intl.NumberFormat().format(Math.ceil(principal.value)));
+    setYears(retireAge - curAge);
+    setInitialBal(Intl.NumberFormat().format(Math.ceil(principal)));
     setContributions(
-      Intl.NumberFormat().format(Math.ceil(years * 12 * monthlyDeposit.value))
+      Intl.NumberFormat().format(
+        Math.ceil((retireAge - curAge) * 12 * monthlyDeposit)
+      )
     );
     setGrowth(
       Intl.NumberFormat().format(
-        Math.ceil(investment - Math.ceil(years * 12 * monthlyDeposit.value))
+        Math.ceil(
+          investment - Math.ceil((retireAge - curAge) * 12 * monthlyDeposit)
+        )
       )
     );
-    setInitialBalPer(Math.ceil((principal.value / Number(investment)) * 100));
+    setInitialBalPer(Math.ceil((principal / Number(investment)) * 100));
     setContributionsPer(
       Math.ceil(
-        ((years * 12 * monthlyDeposit.value) / Number(investment)) * 100
+        (((retireAge - curAge) * 12 * monthlyDeposit) / Number(investment)) *
+          100
       )
     );
-    setGrowthPer(100 - (initialBalPer + contributionsPer));
-  };
+    setGrowthPer(
+      100 -
+        (Math.ceil((principal / Number(investment)) * 100) +
+          Math.ceil(
+            (((retireAge - curAge) * 12 * monthlyDeposit) /
+              Number(investment)) *
+              100
+          ))
+    );
+  }, [investment]);
 
   return (
     <div className="w-10/12 mx-auto md:px-3 md:w-4/12 md:mx-0 lg:w-6/12 xl:w-5/12 xl:bg-white">
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          calcInvestment(e);
         }}
       >
         <h2 className="font-bold text-4xl pt-10 pb-6">
@@ -134,6 +140,8 @@ export default function Investment() {
           className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-5 md:w-6/12 lg:w-4/12 xl:w-3/12"
           type="number"
           name="curAge"
+          value={curAge}
+          onChange={(e) => {setCurAge(e.target.value)}}
         />
         <br />
         <label className="font-bold ">Enter the age you plan to retire.</label>
@@ -142,6 +150,8 @@ export default function Investment() {
           className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-1 md:w-6/12 lg:w-4/12 xl:w-3/12"
           type="number"
           name="retireAge"
+          value={retireAge}
+          onChange={(e) => {setRetireAge(e.target.value)}}
         />
         <p className="text-sm font-bold text-gray-500">
           If you were born in 1960 or later, 67 years old is the age at which
@@ -156,6 +166,8 @@ export default function Investment() {
           className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12"
           type="number"
           name="principal"
+          value={principal}
+          onChange={(e) => {setPrincipal(e.target.value)}}
         />
         <p className="text-sm font-bold text-gray-500">
           This should be the total of all your investment accounts including
@@ -170,6 +182,8 @@ export default function Investment() {
           className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12"
           type="number"
           name="monthlyDeposit"
+          value={monthlyDeposit}
+          onChange={(e) => {setMonthlyDeposit(e.target.value)}}
         />
         <p className="text-sm font-bold text-gray-500">
           This is the amount you invest each month. We recommend investing 15%
@@ -184,6 +198,8 @@ export default function Investment() {
           className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12"
           type="number"
           name="interestRate"
+          value={interestRate}
+          onChange={(e) => {setInterestRate(e.target.value)}}
         />
         <p className="text-sm font-bold text-gray-500">
           This is the return your investment will generate over time.

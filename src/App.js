@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Investment from "./Components/Investment";
+import Investment from "./components/Investment";
 import { ResultContext } from "./Context/ResultContext";
 export default function App() {
   const [investment, setInvestment] = useState(0);
