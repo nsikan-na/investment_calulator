@@ -147,7 +147,7 @@ export default function Investment() {
                 (interestRate / 100 / 12))
         ),
       ]);
-      setChartYears((prevChartYears) => [...prevChartYears, curYear + i - 1]);
+      setChartYears((prevChartYears) => [...prevChartYears, curYear + i]);
     }
   }, [data]);
 

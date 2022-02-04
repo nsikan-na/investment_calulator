@@ -23,8 +23,8 @@ export default function ChartResults() {
     setChart(
       <Chart
         chartType="Bar"
-        width="100%"
-        height="400px"
+        width="90%"
+        height="90%"
         data={chartDataArr}
         options={options}
       />
