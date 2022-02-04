@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ResultContext } from "../Context/ResultContext";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import ChartResults from "./ChartResults";
 
 export default function Results() {
   const {
@@ -16,6 +16,7 @@ export default function Results() {
     contributionsPer,
     growthPer,
   } = useContext(ResultContext);
+
   return (
     <div className="text-center md:border-gray-300 md:border md:w-full xl:bg-white">
       <div
@@ -134,7 +135,7 @@ export default function Results() {
         </div>
       </div>
       <div className="shadow pb-8 bg-white pt-6 md:border-gray-300 md:shadow-none md:border-b md:flex md:justify-center md:align-center">
-        <img src="images/chartplaceholder.jpg" />
+        <ChartResults />
       </div>
       <div className="w-9/12 mx-auto pb-10 ">
         <h2 className="font-bold text-4xl my-7 md:text-3xl ">What if I...</h2>

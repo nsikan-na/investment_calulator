@@ -17,6 +17,11 @@ export default function Investment() {
     setGrowthPer,
     setInitialBalPer,
     years,
+    setChartDataArr,
+    setDataArr,
+    dataArr,
+    chartYears,
+    setChartYears,
   } = useContext(ResultContext);
   const [curAge, setCurAge] = useState("");
   const [retireAge, setRetireAge] = useState(67);
@@ -25,8 +30,7 @@ export default function Investment() {
   const [interestRate, setInterestRate] = useState("");
   const [handleSubmit, setHandleSubmit] = useState(false);
   const [data, setData] = useState(false);
-  const [dataArr, setDataArr] = useState([]);
-  const [test,setTest]=useState(false);
+  const [test, setTest] = useState(false);
 
   useEffect(() => {
     if (!curAge) return;
@@ -121,39 +125,51 @@ export default function Investment() {
           Math.ceil(
             (((retireAge - curAge) * 12 * monthlyDeposit) /
               Number(investment)) *
-              100 
+              100
           ))
     );
-    console.log('h')
     setData(!data);
   }, [investment]);
 
   useEffect(() => {
-    if (!data)return
-    setTest(!test)
-    console.log('e');
-     for (let i = 1; i <= years; i++) {
-       console.log(i,years);
-       setDataArr((prev)=>[...prev,i])
-      
-      // setDataArr((prevDataArr) => [
-      //   Number(...prevDataArr),Number(
-      //   (principal *
-      //     Math.pow(
-      //       1 + interestRate / 100 / 12,
-      //       12 * i ))+
-      //         monthlyDeposit *
-      //           (Math.pow(1 + interestRate / 100 / 12, 12 * i - 1) /
-      //             (interestRate / 100 / 12))
-      //     ),
-      // ]);
-     }
+    if (!data) return;
+    setTest(!test);
+    console.log("o");
+    const curYear = new Date().getFullYear();
+    // console.log(curYear);
+    for (let i = 1; i <= years; i++) {
+      setDataArr((prevDataArr) => [
+        ...prevDataArr,
+        Math.ceil(
+          principal * Math.pow(1 + interestRate / 100 / 12, 12 * i) +
+            monthlyDeposit *
+              ((Math.pow(1 + interestRate / 100 / 12, 12 * i) - 1) /
+                (interestRate / 100 / 12))
+        ),
+      ]);
+      setChartYears((prevChartYears) => [...prevChartYears, curYear + i - 1]);
+    }
   }, [data]);
 
   useEffect(() => {
-    if (!test)return
-    console.log('y');
-    console.log(dataArr);
+    if (!test) return;
+    setChartDataArr(
+      dataArr.map((data, i) => [
+        chartYears[i] === "" ? `` : `${chartYears[i]}: `,
+        dataArr[i] === "" ? `` : `$${Intl.NumberFormat().format(dataArr[i])}`,
+      ])
+    );
+    setData(!data);
+    setTest(!data);
+
+    // const s = dataArr.find((x) => {
+    //   return x > 1000000;
+    // });
+    // const y = dataArr.findIndex((x) => {
+    //   return x == s;
+    // });
+    // console.log(y);
+    // console.log(dataArr[y]);
   }, [test]);
 
   return (

@@ -13,6 +13,9 @@ export default function App() {
   const [initialBalPer, setInitialBalPer] = useState(0);
   const [growthPer, setGrowthPer] = useState(0);
   const [contributionsPer, setContributionsPer] = useState(0);
+  const [chartDataArr,setChartDataArr]=useState([])
+  const [dataArr, setDataArr] = useState([""]);
+  const [chartYears, setChartYears] = useState([""]);
 
   return (
     <div>
@@ -40,6 +43,12 @@ export default function App() {
           setGrowthPer,
           contributionsPer,
           setContributionsPer,
+          chartDataArr,
+          setChartDataArr,
+          dataArr,
+          setDataArr,
+          chartYears,
+          setChartYears,
         }}
       >
         <Investment />
