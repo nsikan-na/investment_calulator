@@ -15,8 +15,8 @@ export default function Investment() {
     setInvestCoffee,
     setContributionsPer,
     setGrowthPer,
-    years,
     setInitialBalPer,
+    years,
   } = useContext(ResultContext);
   const [curAge, setCurAge] = useState("");
   const [retireAge, setRetireAge] = useState(67);
@@ -26,6 +26,7 @@ export default function Investment() {
   const [handleSubmit, setHandleSubmit] = useState(false);
   const [data, setData] = useState(false);
   const [dataArr, setDataArr] = useState([]);
+  const [test,setTest]=useState(false);
 
   useEffect(() => {
     if (!curAge) return;
@@ -33,7 +34,6 @@ export default function Investment() {
     if (!principal) return;
     if (!monthlyDeposit) return;
     if (!interestRate) return;
-    // setInvestment('')
     setInvestment(
       principal *
         Math.pow(1 + interestRate / 100 / 12, 12 * (retireAge - curAge)) +
@@ -121,28 +121,40 @@ export default function Investment() {
           Math.ceil(
             (((retireAge - curAge) * 12 * monthlyDeposit) /
               Number(investment)) *
-              100
+              100 
           ))
     );
+    console.log('h')
     setData(!data);
   }, [investment]);
 
   useEffect(() => {
-    if (!years) return;
-    for (let i = 0; i <= years; i++) {
-     setDataArr(...data,principal *
-        Math.pow(1 + interestRate / 100 / 12, 12 * i +
-        monthlyDeposit *
-          ((Math.pow(1 + interestRate / 100 / 12, 12 * i -
-            1) /
-            (interestRate / 100 / 12))
-        )))}
+    if (!data)return
+    setTest(!test)
+    console.log('e');
+     for (let i = 1; i <= years; i++) {
+       console.log(i,years);
+       setDataArr((prev)=>[...prev,i])
+      
+      // setDataArr((prevDataArr) => [
+      //   Number(...prevDataArr),Number(
+      //   (principal *
+      //     Math.pow(
+      //       1 + interestRate / 100 / 12,
+      //       12 * i ))+
+      //         monthlyDeposit *
+      //           (Math.pow(1 + interestRate / 100 / 12, 12 * i - 1) /
+      //             (interestRate / 100 / 12))
+      //     ),
+      // ]);
+     }
   }, [data]);
 
-useEffect(()=>{
-console.log(data);
-},[dataArr])
-
+  useEffect(() => {
+    if (!test)return
+    console.log('y');
+    console.log(dataArr);
+  }, [test]);
 
   return (
     <div className="w-10/12 mx-auto md:px-3 md:w-4/12 md:mx-0 lg:w-6/12 xl:w-5/12 xl:bg-white">
