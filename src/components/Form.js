@@ -15,22 +15,25 @@ export default function Investment() {
     setInvestCoffee,
     setContributionsPer,
     setGrowthPer,
+    years,
     setInitialBalPer,
   } = useContext(ResultContext);
-  const [curAge, setCurAge] = useState('');
+  const [curAge, setCurAge] = useState("");
   const [retireAge, setRetireAge] = useState(67);
-  const [principal, setPrincipal] = useState('');
-  const [monthlyDeposit, setMonthlyDeposit] = useState('');
-  const [interestRate, setInterestRate] = useState('');
-  const [handleSubmit,setHandleSubmit]=useState(false)
+  const [principal, setPrincipal] = useState("");
+  const [monthlyDeposit, setMonthlyDeposit] = useState("");
+  const [interestRate, setInterestRate] = useState("");
+  const [handleSubmit, setHandleSubmit] = useState(false);
+  const [data, setData] = useState(false);
+  const [dataArr, setDataArr] = useState([]);
 
-
-  useEffect(()=>{
-    if(!curAge)return
-    if (!retireAge)return
-    if(!principal)return
-    if(!monthlyDeposit)return
-    if(!interestRate)return
+  useEffect(() => {
+    if (!curAge) return;
+    if (!retireAge) return;
+    if (!principal) return;
+    if (!monthlyDeposit) return;
+    if (!interestRate) return;
+    // setInvestment('')
     setInvestment(
       principal *
         Math.pow(1 + interestRate / 100 / 12, 12 * (retireAge - curAge)) +
@@ -39,12 +42,10 @@ export default function Investment() {
             1) /
             (interestRate / 100 / 12))
     );
-
-
-},[handleSubmit])
+  }, [handleSubmit]);
 
   useEffect(() => {
-    if(!investment)return
+    if (!investment) return;
     setInvestMoney(
       Intl.NumberFormat().format(
         Math.ceil(
@@ -123,14 +124,32 @@ export default function Investment() {
               100
           ))
     );
+    setData(!data);
   }, [investment]);
+
+  useEffect(() => {
+    if (!years) return;
+    for (let i = 0; i <= years; i++) {
+     setDataArr(...data,principal *
+        Math.pow(1 + interestRate / 100 / 12, 12 * i +
+        monthlyDeposit *
+          ((Math.pow(1 + interestRate / 100 / 12, 12 * i -
+            1) /
+            (interestRate / 100 / 12))
+        )))}
+  }, [data]);
+
+useEffect(()=>{
+console.log(data);
+},[dataArr])
+
 
   return (
     <div className="w-10/12 mx-auto md:px-3 md:w-4/12 md:mx-0 lg:w-6/12 xl:w-5/12 xl:bg-white">
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          setHandleSubmit(!handleSubmit)
+          setHandleSubmit(!handleSubmit);
         }}
       >
         <h2 className="font-bold text-4xl pt-10 pb-6">
@@ -143,7 +162,9 @@ export default function Investment() {
           type="number"
           name="curAge"
           value={curAge}
-          onChange={(e) => {setCurAge(e.target.value)}}
+          onChange={(e) => {
+            setCurAge(e.target.value);
+          }}
         />
         <br />
         <label className="font-bold ">Enter the age you plan to retire.</label>
@@ -153,7 +174,9 @@ export default function Investment() {
           type="number"
           name="retireAge"
           value={retireAge}
-          onChange={(e) => {setRetireAge(e.target.value)}}
+          onChange={(e) => {
+            setRetireAge(e.target.value);
+          }}
         />
         <p className="text-sm font-bold text-gray-500">
           If you were born in 1960 or later, 67 years old is the age at which
@@ -169,7 +192,9 @@ export default function Investment() {
           type="number"
           name="principal"
           value={principal}
-          onChange={(e) => {setPrincipal(e.target.value)}}
+          onChange={(e) => {
+            setPrincipal(e.target.value);
+          }}
         />
         <p className="text-sm font-bold text-gray-500">
           This should be the total of all your investment accounts including
@@ -185,7 +210,9 @@ export default function Investment() {
           type="number"
           name="monthlyDeposit"
           value={monthlyDeposit}
-          onChange={(e) => {setMonthlyDeposit(e.target.value)}}
+          onChange={(e) => {
+            setMonthlyDeposit(e.target.value);
+          }}
         />
         <p className="text-sm font-bold text-gray-500">
           This is the amount you invest each month. We recommend investing 15%
@@ -201,7 +228,9 @@ export default function Investment() {
           type="number"
           name="interestRate"
           value={interestRate}
-          onChange={(e) => {setInterestRate(e.target.value)}}
+          onChange={(e) => {
+            setInterestRate(e.target.value);
+          }}
         />
         <p className="text-sm font-bold text-gray-500">
           This is the return your investment will generate over time.
