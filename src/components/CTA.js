@@ -21,7 +21,7 @@ export default function CTA() {
             next step is to use a Smartvestor Pro to build your custom
             retirement plan.
           </p>
-          <button className="bg-emerald-500 px-4 py-2 rounded-md my-4 xl:mb-8 xl:ml-10">
+          <button className="bg-emerald-500 px-4 py-2 rounded-md my-4 xl:mb-8 xl:ml-10 hover:bg-emerald-400">
             Find a Pro Now
           </button>
         </div>
@@ -69,7 +69,7 @@ export default function CTA() {
           advice! If you need help with your investments, we recommend working
           with an expert who'll help you understand what you're investing in. If
           that's your next step, we can help you{" "}
-          <span className="underline text-blue-600">connect with a pro</span>{" "}
+          <span className="underline text-blue-600 hover:text-sky-400 cursor-pointer hover:underline">connect with a pro</span>{" "}
           near you.
         </p>
         <div>
@@ -85,7 +85,7 @@ export default function CTA() {
           <br />
           <p className="font-medium xl:text-xl">
             Got your vision?{" "}
-            <span className="underline text-blue-600">
+            <span className="underline text-blue-600 hover:text-sky-400 cursor-pointer hover:underline">
               Figure out how much you'll need to make it a reality
             </span>
             .

@@ -341,11 +341,13 @@ export default function Investment() {
         <h2 className="font-bold text-4xl pt-10 pb-6">
           Enter Your Information
         </h2>
-        <label className="font-bold ">Enter your current age.</label>
+        <label className="font-bold hover:cursor-pointer" htmlFor="curAge">Enter your current age.</label>
         <br />
         <input
-          className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-5 md:w-6/12 lg:w-4/12 xl:w-3/12"
+     
+          className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-5 md:w-6/12 lg:w-4/12 xl:w-3/12 hover:cursor-pointer"
           type="number"
+          id="curAge"
           name="curAge"
           min="0"
           max="100"
@@ -358,12 +360,13 @@ export default function Investment() {
           {curAgeErrorMsg}
         </div>
         <br />
-        <label className="font-bold ">Enter the age you plan to retire.</label>
+        <label className="font-bold hover:cursor-pointer"  htmlFor="retireAge">Enter the age you plan to retire.</label>
         <br />
         <input
-          className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-1 md:w-6/12 lg:w-4/12 xl:w-3/12"
+          className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-1 md:w-6/12 lg:w-4/12 xl:w-3/12 hover:cursor-pointer"
           type="number"
           name="retireAge"
+          id="retireAge"
           min="0"
           max="100"
           value={retireAge}
@@ -379,14 +382,15 @@ export default function Investment() {
           you can retire with full benefits.
         </p>
         <br />
-        <label className="font-bold ">
+        <label className="font-bold hover:cursor-pointer"  htmlFor="principal">
           About how much money do you currently have in investment?
         </label>
         <br />
         <input
-          className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12"
+          className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12 hover:cursor-pointer"
           type="number"
           name="principal"
+          id="principal"
           min="0"
           value={principal}
           onChange={(e) => {
@@ -401,14 +405,15 @@ export default function Investment() {
           401(k)s, IRAs, mutual funds, etc.
         </p>
         <br />
-        <label className="font-bold ">
+        <label className="font-bold hover:cursor-pointer"  htmlFor="monthlyDeposit">
           How much will you contribute monthly?
         </label>
         <br />
         <input
-          className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12"
+          className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12 hover:cursor-pointer"
           type="number"
           name="monthlyDeposit"
+          id="monthlyDeposit"
           value={monthlyDeposit}
           min="0"
           onChange={(e) => {
@@ -425,13 +430,14 @@ export default function Investment() {
           of your paycheck.
         </p>
         <br />
-        <label className="font-bold ">
+        <label className="font-bold hover:cursor-pointer"  htmlFor="interestRate">
           What do you think your annual return will be?
         </label>
         <br />
         <input
-          className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12"
+          className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12 hover:cursor-pointer"
           type="number"
+          id="interestRate"
           name="interestRate"
           min="0"
           value={interestRate}
@@ -450,7 +456,7 @@ export default function Investment() {
             <span className="text-blue-700 font-bold text-xs">1</span>
           </a>
         </p>
-        <button className="text-white font-extrabold bg-sky-600 px-7 py-3 rounded-md my-6 shadow md:px-5 md:py-2">
+        <button className="text-white font-extrabold bg-sky-600 px-7 py-3 rounded-md my-6 shadow md:px-5 md:py-2 hover:bg-sky-500 ">
           Calculate
         </button>
         <div className={`text-sm font-bold text-red-600 ${formError}`}>

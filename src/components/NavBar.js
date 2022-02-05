@@ -45,23 +45,23 @@ export default function NavBar() {
             />
             </div>
           <div className="  self-center flex w-9/12 justify-end">
-            <input type="text" placeholder="Search" className="font-medium rounded-md input px-3 py-2"/>
-            <a className=" text-sky-700 font-bold text-md w-full text-center pt-2">Sign In</a>
-            <button className="text-white bg-sky-700 px-1 rounded-md  -mt-2 ml-6 w-full font-bold 2xl:whitespace-nowrap">Get Started</button>
+            <input type="text" placeholder="Search" className="font-medium rounded-md input px-3 py-2 hover:cursor-pointer"/>
+            <a className=" text-sky-700 font-bold text-md w-full text-center pt-2 hover:text-sky-400 cursor-pointer hover:underline">Sign In</a>
+            <button className="text-white bg-sky-700 px-1 rounded-md  -mt-2 ml-6 w-full font-bold 2xl:whitespace-nowrap hover:bg-sky-600 cursor-pointer hover:underline">Get Started</button>
           </div>
         </div>
         <div>
           <div className="pt-1 bg-gray-100 my-1"></div>
-        <ul className="flex justify-between text-lg font-bold text-sky-600 py-4 w-8/12">
-          <li>Guided Plans</li>
-          <li>Shows</li>
-          <li>Personalities</li>
-          <li>Trusted Pros</li>
-          <li>FreeTools</li>
-          <li>Articles</li>
-          <div>
-          <ShoppingCartIcon className="text-gray-400 -mt-1"/>
-            <li className="inline pl-1">Store</li>
+        <ul className="flex justify-between text-lg font-bold text-sky-600 py-4 w-9/12">
+          <li className="hover:text-sky-400 cursor-pointer hover:underline">Guided Plans</li>
+          <li className="hover:text-sky-400 cursor-pointer hover:underline">Shows</li>
+          <li className="hover:text-sky-400 cursor-pointer hover:underline">Personalities</li>
+          <li className="hover:text-sky-400 cursor-pointer hover:underline">Trusted Pros</li>
+          <li className="hover:text-sky-400 cursor-pointer hover:underline">FreeTools</li>
+          <li className="hover:text-sky-400 cursor-pointer hover:underline">Articles</li>
+          <div className="cursor-pointer hover:underline hover:text-sky-400 ">
+          <ShoppingCartIcon className="text-gray-400 -mt-1 "/>
+            <li className="inline pl-1  cursor-pointer ">Store</li>
           </div>
         </ul>
           </div>
