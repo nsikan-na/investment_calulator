@@ -5,7 +5,7 @@
 This is an clone of an investment calculator I use often ([Ramsey Solution Investment Calculator](https://www.ramseysolutions.com/retirement/investment-calculator)).
 
 
-# Project Focus
+## Project Focus
 * responsive interface
 * turn a psd into a website
 * manage state using React's context api
