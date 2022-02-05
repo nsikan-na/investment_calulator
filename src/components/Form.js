@@ -148,7 +148,7 @@ export default function Investment() {
       return;
     }
     setFormError("hidden");
-    setFormSubmitted(true)
+    setFormSubmitted(true);
     setInvestment(
       principal *
         Math.pow(1 + interestRate / 100 / 12, 12 * (retireAge - curAge)) +
@@ -278,6 +278,8 @@ export default function Investment() {
           new Date().getFullYear() + y + 1
         }: $${Intl.NumberFormat().format(dataArr[y])})`
       );
+    } else {
+      setMill("");
     }
     setColorArr(
       dataArr.map((data) => {
@@ -347,7 +349,7 @@ export default function Investment() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          setHandleSubmit(!handleSubmit);
+          setHandleSubmit(true);
         }}
       >
         <h2 className="font-bold text-4xl pt-10 pb-6">

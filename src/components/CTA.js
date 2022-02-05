@@ -6,7 +6,11 @@ export default function CTA() {
   return (
     <div className={`2xl:w-7/12 `}>
       <div className="xl:bg-gray-200 2xl:w-screen">
-        <div className={`2xl:w-7/12 2xl:mx-auto ${!formSubmitted ? "hidden" : 'block'}`}>
+        <div
+          className={`2xl:w-7/12 2xl:mx-auto ${
+            !formSubmitted ? "hidden" : "block"
+          }`}
+        >
           <div
             style={{ backgroundImage: `url(/images/cta1.jpg)` }}
             className="text-center  text-white bg-no-repeat bg-cover xl:mx-24 "
