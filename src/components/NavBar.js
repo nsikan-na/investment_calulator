@@ -14,8 +14,8 @@ export default function NavBar() {
           className="object-contain justify-start left-0 "
         />
         <div className="w-screen justify-end flex">
-          <SearchIcon className="text-sky-600 m-3 scale-125 justify-end " />
-          <nav className="text-sky-600 font-bold my-3 mr-4 text-lg right-0 justify-end md:mr-7 md:ml-3 md:text-lg ">
+          <SearchIcon className="text-sky-600 m-3 scale-125 justify-end hover:text-sky-400 cursor-pointer" />
+          <nav className="text-sky-600 font-bold my-3 mr-4 text-lg right-0 justify-end md:mr-7 md:ml-3 md:text-lg hover:text-sky-400 cursor-pointer hover:underline">
             MENU
           </nav>
           {/* <ArrowForwardIosIcon/> */}
