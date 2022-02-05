@@ -24,6 +24,8 @@ export default function Investment() {
     chartYears,
     setChartYears,
     setDisplayChart,
+    mill,
+    setMill,
   } = useContext(ResultContext);
   const [curAge, setCurAge] = useState("");
   const [retireAge, setRetireAge] = useState(67);
@@ -49,7 +51,6 @@ export default function Investment() {
   useEffect(() => {
     switch (true) {
       case curAge < 0: {
-
         setCurAgeError("block");
         setCurAgeErrorMsg("Current age must be greater than 0.");
         break;
@@ -91,11 +92,6 @@ export default function Investment() {
       }
     }
     switch (true) {
-      case principal < 0: {
-        setPrincipalError("block");
-        setPrincipalErrorMsg("Principal must be greater than 0.");
-        break;
-      }
       default: {
         setPrincipalError("hidden");
         setPrincipalErrorMsg("");
@@ -115,6 +111,11 @@ export default function Investment() {
       case interestRate < 0: {
         setInterestRateError("block");
         setInterestRateErrorMsg("Rate must be greater than 0.");
+        break;
+      }
+      case interestRate > 100: {
+        setInterestRateError("block");
+        setInterestRateErrorMsg("Rate must be less than 100.");
         break;
       }
       default: {
@@ -146,7 +147,7 @@ export default function Investment() {
       setFormError("block");
       return;
     }
-    setFormError("hidden")
+    setFormError("hidden");
     setInvestment(
       principal *
         Math.pow(1 + interestRate / 100 / 12, 12 * (retireAge - curAge)) +
@@ -267,6 +268,16 @@ export default function Investment() {
     const s = dataArr.find((x) => {
       return x > 1000000;
     });
+    const y = dataArr.findIndex((x) => {
+      return x === s;
+    });
+    if (s > 1000000) {
+      setMill(
+        `You will be a millionaire in ${y + 1} years. (${
+          new Date().getFullYear() + y + 1
+        }: $${Intl.NumberFormat().format(dataArr[y])})`
+      );
+    }
     setColorArr(
       dataArr.map((data) => {
         return data === s ? "rgb(2 132 199)" : "rgb(132 204 22)";
@@ -341,10 +352,11 @@ export default function Investment() {
         <h2 className="font-bold text-4xl pt-10 pb-6">
           Enter Your Information
         </h2>
-        <label className="font-bold hover:cursor-pointer" htmlFor="curAge">Enter your current age.</label>
+        <label className="font-bold hover:cursor-pointer" htmlFor="curAge">
+          Enter your current age.
+        </label>
         <br />
         <input
-     
           className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-5 md:w-6/12 lg:w-4/12 xl:w-3/12 hover:cursor-pointer"
           type="number"
           id="curAge"
@@ -360,7 +372,9 @@ export default function Investment() {
           {curAgeErrorMsg}
         </div>
         <br />
-        <label className="font-bold hover:cursor-pointer"  htmlFor="retireAge">Enter the age you plan to retire.</label>
+        <label className="font-bold hover:cursor-pointer" htmlFor="retireAge">
+          Enter the age you plan to retire.
+        </label>
         <br />
         <input
           className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-1 md:w-6/12 lg:w-4/12 xl:w-3/12 hover:cursor-pointer"
@@ -382,7 +396,7 @@ export default function Investment() {
           you can retire with full benefits.
         </p>
         <br />
-        <label className="font-bold hover:cursor-pointer"  htmlFor="principal">
+        <label className="font-bold hover:cursor-pointer" htmlFor="principal">
           About how much money do you currently have in investment?
         </label>
         <br />
@@ -391,7 +405,6 @@ export default function Investment() {
           type="number"
           name="principal"
           id="principal"
-          min="0"
           value={principal}
           onChange={(e) => {
             setPrincipal(e.target.value);
@@ -405,7 +418,10 @@ export default function Investment() {
           401(k)s, IRAs, mutual funds, etc.
         </p>
         <br />
-        <label className="font-bold hover:cursor-pointer"  htmlFor="monthlyDeposit">
+        <label
+          className="font-bold hover:cursor-pointer"
+          htmlFor="monthlyDeposit"
+        >
           How much will you contribute monthly?
         </label>
         <br />
@@ -430,7 +446,10 @@ export default function Investment() {
           of your paycheck.
         </p>
         <br />
-        <label className="font-bold hover:cursor-pointer"  htmlFor="interestRate">
+        <label
+          className="font-bold hover:cursor-pointer"
+          htmlFor="interestRate"
+        >
           What do you think your annual return will be?
         </label>
         <br />

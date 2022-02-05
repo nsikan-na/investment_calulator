@@ -13,10 +13,13 @@ export default function App() {
   const [initialBalPer, setInitialBalPer] = useState(0);
   const [growthPer, setGrowthPer] = useState(0);
   const [contributionsPer, setContributionsPer] = useState(0);
-  const [chartDataArr,setChartDataArr]=useState([])
+  const [chartDataArr, setChartDataArr] = useState([]);
   const [dataArr, setDataArr] = useState([]);
   const [chartYears, setChartYears] = useState([]);
-  const [displayChart,setDisplayChart]= useState(<div className="p-40"></div>)
+  const [displayChart, setDisplayChart] = useState(
+    <div className="p-40"></div>
+  );
+  const [mill, setMill] = useState("");
 
   return (
     <div>
@@ -51,7 +54,9 @@ export default function App() {
           chartYears,
           setChartYears,
           displayChart,
-          setDisplayChart
+          setDisplayChart,
+          mill,
+          setMill,
         }}
       >
         <Investment />

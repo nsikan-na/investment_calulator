@@ -15,6 +15,8 @@ export default function Results() {
     contributionsPer,
     growthPer,
     displayChart,
+    mill,
+    setMill,
   } = useContext(ResultContext);
 
   return (
@@ -134,8 +136,11 @@ export default function Results() {
           </div>
         </div>
       </div>
-      <div className="shadow pb-8 bg-white pt-6 md:border-gray-300 md:shadow-none md:border-b flex justify-center items-center ">
-        {displayChart}
+      <div className=" pb-8 shadow md:border-gray-300 md:shadow-none md:border-b font-bold">
+        <div className="  bg-white pt-6  flex justify-center items-center ">
+          {displayChart}
+        </div>
+        <div>{mill}</div>
       </div>
       <div className="w-9/12 mx-auto pb-10 ">
         <h2 className="font-bold text-4xl my-7 md:text-3xl ">What if I...</h2>
