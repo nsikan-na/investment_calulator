@@ -1,16 +1,16 @@
 # Investment Calculator
 
-[Visit Live Site](https://nsikan-investment-calculator.netlify.app/)
+## [Visit Live Site](https://nsikan-investment-calculator.netlify.app/) ##
 
-This is an clone of an investment calculator I use often ([Ramsey Solution Investment Calculator](https://www.ramseysolutions.com/retirement/investment-calculator)).
+This is a clone of an investment calculator I use often ([Ramsey Solution Investment Calculator](https://www.ramseysolutions.com/retirement/investment-calculator)).
 
 
-# Project Focus
+## Project Focus
 * responsive interface
 * turn a psd into a website
 * manage state using React's context api
 * validate user input
-* consume charting api([QuickChart.io](https://quickchart.io/)) asynchronously based off validated user input. 
+* consume charting api ([QuickChart.io](https://quickchart.io/)) asynchronously based off user input. 
 
 ## This was build using
 
