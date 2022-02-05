@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ResultContext } from "../Context/ResultContext";
 import "./Input.css";
+import QuickChart from "quickchart-js/build/quickchart.esm.js";
+import { CircularProgress } from "@material-ui/core";
 
 export default function Investment() {
   const {
@@ -17,11 +19,11 @@ export default function Investment() {
     setGrowthPer,
     setInitialBalPer,
     years,
-    setChartDataArr,
     setDataArr,
     dataArr,
     chartYears,
     setChartYears,
+    setDisplayChart,
   } = useContext(ResultContext);
   const [curAge, setCurAge] = useState("");
   const [retireAge, setRetireAge] = useState(67);
@@ -31,13 +33,120 @@ export default function Investment() {
   const [handleSubmit, setHandleSubmit] = useState(false);
   const [data, setData] = useState(false);
   const [test, setTest] = useState(false);
+  const [colorArr, setColorArr] = useState([]);
+  const [curAgeError, setCurAgeError] = useState("hidden");
+  const [curAgeErrorMsg, setCurAgeErrorMsg] = useState("");
+  const [retireAgeError, setRetireAgeError] = useState("hidden");
+  const [retireAgeErrorMsg, setRetireAgeErrorMsg] = useState("");
+  const [principalError, setPrincipalError] = useState("hidden");
+  const [principalErrorMsg, setPrincipalErrorMsg] = useState("");
+  const [monthlyDepositError, setMonthlyDepositError] = useState("hidden");
+  const [monthlyDepositErrorMsg, setMonthlyDepositErrorMsg] = useState("");
+  const [interestRateError, setInterestRateError] = useState("hidden");
+  const [interestRateErrorMsg, setInterestRateErrorMsg] = useState("");
+  const [formError, setFormError] = useState("hidden");
 
   useEffect(() => {
-    if (!curAge) return;
-    if (!retireAge) return;
-    if (!principal) return;
-    if (!monthlyDeposit) return;
-    if (!interestRate) return;
+    switch (true) {
+      case curAge < 0: {
+
+        setCurAgeError("block");
+        setCurAgeErrorMsg("Current age must be greater than 0.");
+        break;
+      }
+      case curAge > 100: {
+        setCurAgeError("block");
+        setCurAgeErrorMsg("Current age must less than 100.");
+        break;
+      }
+      case retireAge > curAge: {
+        setRetireAgeError("hidden");
+        setCurAgeError("hidden");
+        break;
+      }
+      default: {
+        setCurAgeError("hidden");
+        setCurAgeErrorMsg("");
+      }
+    }
+    switch (true) {
+      case retireAge < 0: {
+        setRetireAgeError("block");
+        setRetireAgeErrorMsg("Retire age must be greater than 0.");
+        break;
+      }
+      case retireAge > 100: {
+        setRetireAgeError("block");
+        setRetireAgeErrorMsg("Retire age must less than 100.");
+        break;
+      }
+      case Number(retireAge) < Number(curAge): {
+        setRetireAgeError("block");
+        setRetireAgeErrorMsg("Current age can't be greater than retire age");
+        break;
+      }
+      default: {
+        setRetireAgeError("hidden");
+        setRetireAgeErrorMsg("");
+      }
+    }
+    switch (true) {
+      case principal < 0: {
+        setPrincipalError("block");
+        setPrincipalErrorMsg("Principal must be greater than 0.");
+        break;
+      }
+      default: {
+        setPrincipalError("hidden");
+        setPrincipalErrorMsg("");
+      }
+    }
+    switch (true) {
+      case monthlyDeposit < 0: {
+        setMonthlyDepositError("block");
+        setMonthlyDepositErrorMsg("Deposit must be greater than 0.");
+        break;
+      }
+      default: {
+        setMonthlyDepositError("hidden");
+      }
+    }
+    switch (true) {
+      case interestRate < 0: {
+        setInterestRateError("block");
+        setInterestRateErrorMsg("Rate must be greater than 0.");
+        break;
+      }
+      default: {
+        setInterestRateError("hidden");
+        setInterestRateErrorMsg("");
+      }
+    }
+  }, [curAge, retireAge, principal, monthlyDeposit, interestRate]);
+
+  useEffect(() => {
+    if (!handleSubmit) return;
+    if (!curAge) {
+      setFormError("block");
+      return;
+    }
+    if (!retireAge) {
+      setFormError("block");
+      return;
+    }
+    if (!principal) {
+      setFormError("block");
+      return;
+    }
+    if (!monthlyDeposit) {
+      setFormError("block");
+      return;
+    }
+    if (!interestRate) {
+      setFormError("block");
+      return;
+    }
+    setFormError("hidden")
     setInvestment(
       principal *
         Math.pow(1 + interestRate / 100 / 12, 12 * (retireAge - curAge)) +
@@ -128,13 +237,15 @@ export default function Investment() {
               100
           ))
     );
+    setColorArr([]);
+    setDataArr([]);
+    setChartYears([]);
     setData(!data);
   }, [investment]);
 
   useEffect(() => {
     if (!data) return;
     setTest(!test);
-    console.log("o");
     const curYear = new Date().getFullYear();
     // console.log(curYear);
     for (let i = 1; i <= years; i++) {
@@ -153,24 +264,71 @@ export default function Investment() {
 
   useEffect(() => {
     if (!test) return;
-    setChartDataArr(
-      dataArr.map((data, i) => [
-        chartYears[i] === "" ? `` : `${chartYears[i]}: `,
-        dataArr[i] === "" ? `` : `$${Intl.NumberFormat().format(dataArr[i])}`,
-      ])
+    const s = dataArr.find((x) => {
+      return x > 1000000;
+    });
+    setColorArr(
+      dataArr.map((data) => {
+        return data === s ? "rgb(2 132 199)" : "rgb(132 204 22)";
+      })
     );
-    setData(!data);
-    setTest(!data);
-
-    // const s = dataArr.find((x) => {
-    //   return x > 1000000;
-    // });
-    // const y = dataArr.findIndex((x) => {
-    //   return x == s;
-    // });
-    // console.log(y);
-    // console.log(dataArr[y]);
   }, [test]);
+
+  useEffect(() => {
+    if (colorArr.length === 0) return;
+    const myChart = new QuickChart();
+    myChart
+      .setConfig({
+        type: "bar",
+        data: {
+          labels: [...chartYears],
+          datasets: [{ data: [...dataArr], backgroundColor: [...colorArr] }],
+        },
+        options: {
+          legend: { display: false },
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  // Include a dollar sign in the ticks
+                  callback: function (value, index, values) {
+                    return value > 1000 && value < 1000000
+                      ? `$${value / 1000}K`
+                      : value === 0
+                      ? "$0"
+                      : `$${value / 1000000}M`;
+                  },
+                },
+              },
+            ],
+          },
+        },
+      })
+      .setWidth(800)
+      .setHeight(400);
+
+    const displayChart = async () => {
+      try {
+        setDisplayChart(
+          <div className="p-40">
+            <CircularProgress />
+          </div>
+        );
+        await fetch(myChart.getUrl()).then((x) => {
+          setTimeout(() => {
+            setDisplayChart(<img src={x.url} className="mx-auto w-11/12" />);
+          }, 500);
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    displayChart();
+
+    setData(false);
+    setTest(false);
+    setHandleSubmit(false);
+  }, [colorArr]);
 
   return (
     <div className="w-10/12 mx-auto md:px-3 md:w-4/12 md:mx-0 lg:w-6/12 xl:w-5/12 xl:bg-white">
@@ -189,11 +347,16 @@ export default function Investment() {
           className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-5 md:w-6/12 lg:w-4/12 xl:w-3/12"
           type="number"
           name="curAge"
+          min="0"
+          max="100"
           value={curAge}
           onChange={(e) => {
             setCurAge(e.target.value);
           }}
         />
+        <div className={` text-sm font-bold text-red-600 ${curAgeError}`}>
+          {curAgeErrorMsg}
+        </div>
         <br />
         <label className="font-bold ">Enter the age you plan to retire.</label>
         <br />
@@ -201,11 +364,16 @@ export default function Investment() {
           className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-1 md:w-6/12 lg:w-4/12 xl:w-3/12"
           type="number"
           name="retireAge"
+          min="0"
+          max="100"
           value={retireAge}
           onChange={(e) => {
             setRetireAge(e.target.value);
           }}
         />
+        <div className={`text-sm font-bold text-red-600 ${retireAgeError}`}>
+          {retireAgeErrorMsg}
+        </div>
         <p className="text-sm font-bold text-gray-500">
           If you were born in 1960 or later, 67 years old is the age at which
           you can retire with full benefits.
@@ -219,11 +387,15 @@ export default function Investment() {
           className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12"
           type="number"
           name="principal"
+          min="0"
           value={principal}
           onChange={(e) => {
             setPrincipal(e.target.value);
           }}
         />
+        <div className={`text-sm font-bold text-red-600 ${principalError}`}>
+          {principalErrorMsg}
+        </div>
         <p className="text-sm font-bold text-gray-500">
           This should be the total of all your investment accounts including
           401(k)s, IRAs, mutual funds, etc.
@@ -238,10 +410,16 @@ export default function Investment() {
           type="number"
           name="monthlyDeposit"
           value={monthlyDeposit}
+          min="0"
           onChange={(e) => {
             setMonthlyDeposit(e.target.value);
           }}
         />
+        <div
+          className={`text-sm font-bold text-red-600 ${monthlyDepositError}`}
+        >
+          {monthlyDepositErrorMsg}
+        </div>
         <p className="text-sm font-bold text-gray-500">
           This is the amount you invest each month. We recommend investing 15%
           of your paycheck.
@@ -255,11 +433,15 @@ export default function Investment() {
           className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12"
           type="number"
           name="interestRate"
+          min="0"
           value={interestRate}
           onChange={(e) => {
             setInterestRate(e.target.value);
           }}
         />
+        <div className={`text-sm font-bold text-red-600 ${interestRateError}`}>
+          {interestRateErrorMsg}
+        </div>
         <p className="text-sm font-bold text-gray-500">
           This is the return your investment will generate over time.
           Historically, the 30-year return of the S&P 500 has been roughly
@@ -271,6 +453,9 @@ export default function Investment() {
         <button className="text-white font-extrabold bg-sky-600 px-7 py-3 rounded-md my-6 shadow md:px-5 md:py-2">
           Calculate
         </button>
+        <div className={`text-sm font-bold text-red-600 ${formError}`}>
+          Please check form inputs
+        </div>
       </form>
     </div>
   );

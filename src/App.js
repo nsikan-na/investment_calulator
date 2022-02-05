@@ -14,8 +14,9 @@ export default function App() {
   const [growthPer, setGrowthPer] = useState(0);
   const [contributionsPer, setContributionsPer] = useState(0);
   const [chartDataArr,setChartDataArr]=useState([])
-  const [dataArr, setDataArr] = useState([""]);
-  const [chartYears, setChartYears] = useState([""]);
+  const [dataArr, setDataArr] = useState([]);
+  const [chartYears, setChartYears] = useState([]);
+  const [displayChart,setDisplayChart]= useState(<div className="p-40"></div>)
 
   return (
     <div>
@@ -49,6 +50,8 @@ export default function App() {
           setDataArr,
           chartYears,
           setChartYears,
+          displayChart,
+          setDisplayChart
         }}
       >
         <Investment />

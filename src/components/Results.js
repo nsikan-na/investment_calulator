@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { ResultContext } from "../Context/ResultContext";
-import ChartResults from "./ChartResults";
 
 export default function Results() {
   const {
@@ -15,6 +14,7 @@ export default function Results() {
     initialBalPer,
     contributionsPer,
     growthPer,
+    displayChart,
   } = useContext(ResultContext);
 
   return (
@@ -134,8 +134,8 @@ export default function Results() {
           </div>
         </div>
       </div>
-      <div className="shadow pb-8 bg-white pt-6 md:border-gray-300 md:shadow-none md:border-b md:flex md:justify-center md:align-center">
-        <ChartResults />
+      <div className="shadow pb-8 bg-white pt-6 md:border-gray-300 md:shadow-none md:border-b flex justify-center items-center ">
+        {displayChart}
       </div>
       <div className="w-9/12 mx-auto pb-10 ">
         <h2 className="font-bold text-4xl my-7 md:text-3xl ">What if I...</h2>
