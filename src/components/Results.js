@@ -17,7 +17,6 @@ export default function Results() {
     displayChart,
     mill,
     formSubmitted,
-    setMill,
   } = useContext(ResultContext);
 
   return (
