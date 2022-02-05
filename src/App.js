@@ -20,6 +20,7 @@ export default function App() {
     <div className="p-40"></div>
   );
   const [mill, setMill] = useState("");
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   return (
     <div>
@@ -57,6 +58,8 @@ export default function App() {
           setDisplayChart,
           mill,
           setMill,
+          formSubmitted,
+          setFormSubmitted,
         }}
       >
         <Investment />

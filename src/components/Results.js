@@ -16,11 +16,16 @@ export default function Results() {
     growthPer,
     displayChart,
     mill,
+    formSubmitted,
     setMill,
   } = useContext(ResultContext);
 
   return (
-    <div className="text-center md:border-gray-300 md:border md:w-full xl:bg-white">
+    <div
+      className={`text-center md:border-gray-300 md:border md:w-full xl:bg-white ${
+        !formSubmitted ? "opacity-20 cursor-default" : "opacity-100"
+      }`}
+    >
       <div
         className=" xl:bg-gray-200 "
         style={{
@@ -66,7 +71,13 @@ export default function Results() {
                     <div className="font-bold text-xl text-center mb-7 md:text-lg xl:text-left self-center xl:mx-6 xl:w-7/12">
                       Want to make a plan to meet your investment goals?
                     </div>
-                    <button className="bg-sky-700 rounded-md text-white px-4 py-2 text-lg font-bold mb-6 md:text-base md:py-2 md:px-3 xl:whitespace-nowrap hover:bg-sky-600">
+                    <button
+                      className={`bg-sky-700 rounded-md text-white px-4 py-2 text-lg font-bold mb-6 md:text-base md:py-2 md:px-3 xl:whitespace-nowrap hover:bg-sky-600 ${
+                        !formSubmitted
+                          ? "cursor-auto hover:bg-sky-700"
+                          : "hover:bg-sky-600 cursor:pointer"
+                      }`}
+                    >
                       Work with a Pro
                     </button>
                   </div>
@@ -78,7 +89,13 @@ export default function Results() {
                     <div className="font-bold text-xl text-center mb-7 md:text-lg xl:text-left self-center xl:mx-3 xl:w-10/12 xl:ml-8">
                       Are you saving enough to retire the way you want?
                     </div>
-                    <button className="bg-sky-700 rounded-md text-white px-4 py-2 text-lg font-bold mb-6 md:text-base md:py-2 md:px-9 xl:whitespace-nowrap xl:-mr-30 hover:bg-sky-600">
+                    <button
+                      className={`bg-sky-700 rounded-md text-white px-4 py-2 text-lg font-bold mb-6 md:text-base md:py-2 md:px-9 xl:whitespace-nowrap xl:-mr-30 hover:bg-sky-600  ${
+                        !formSubmitted
+                          ? "cursor-auto hover:bg-sky-700"
+                          : "hover:bg-sky-600 cursor:pointer"
+                      }`}
+                    >
                       Find Out
                     </button>
                   </div>
@@ -91,7 +108,13 @@ export default function Results() {
                     <div className="font-bold text-xl text-center mb-7 md:text-lg xl:text-left self-center xl:mx-7 ">
                       Is money stress stopping you from investing more?
                     </div>
-                    <button className="bg-sky-700 rounded-md text-white mb-8 px-4 py-2 text-lg font-bold mb-6md:text-base md:py-1 md:px-3 md:mb-5 xl:whitespace-nowrap xl:w-3/12 xl:ml-1 xl:translate-x-3 hover:bg-sky-600">
+                    <button
+                      className={`bg-sky-700 rounded-md text-white mb-8 px-4 py-2 text-lg font-bold mb-6md:text-base md:py-1 md:px-3 md:mb-5 xl:whitespace-nowrap xl:w-3/12 xl:ml-1 xl:translate-x-3 hover:bg-sky-600  ${
+                        !formSubmitted
+                          ? "cursor-auto hover:bg-sky-700"
+                          : "hover:bg-sky-600 cursor:pointer"
+                      }`}
+                    >
                       Take Control
                     </button>
                   </div>

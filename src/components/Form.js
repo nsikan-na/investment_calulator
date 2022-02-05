@@ -24,7 +24,7 @@ export default function Investment() {
     chartYears,
     setChartYears,
     setDisplayChart,
-    mill,
+    setFormSubmitted,
     setMill,
   } = useContext(ResultContext);
   const [curAge, setCurAge] = useState("");
@@ -148,6 +148,7 @@ export default function Investment() {
       return;
     }
     setFormError("hidden");
+    setFormSubmitted(true)
     setInvestment(
       principal *
         Math.pow(1 + interestRate / 100 / 12, 12 * (retireAge - curAge)) +

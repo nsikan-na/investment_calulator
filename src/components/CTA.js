@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { ResultContext } from "../Context/ResultContext";
 
 export default function CTA() {
-  const { investment } = useContext(ResultContext);
+  const { investment, formSubmitted } = useContext(ResultContext);
   return (
-    <div className="2xl:w-7/12">
+    <div className={`2xl:w-7/12 `}>
       <div className="xl:bg-gray-200 2xl:w-screen">
-        <div className="2xl:w-7/12 2xl:mx-auto">
+        <div className={`2xl:w-7/12 2xl:mx-auto ${!formSubmitted ? "hidden" : 'block'}`}>
           <div
             style={{ backgroundImage: `url(/images/cta1.jpg)` }}
             className="text-center  text-white bg-no-repeat bg-cover xl:mx-24 "
@@ -69,7 +69,7 @@ export default function CTA() {
         </div>
         <div className="w-11/12 mx-auto xl:bg-white xl:w-full ">
           <div className="xl:w-9/12 xl:mx-auto 2xl:w-5/12">
-            <h2 className="font-bold text-2xl pb-6 xl:text-3xl xl:pt-10 ">
+            <h2 className="font-bold text-2xl pt-4 pb-6 xl:text-3xl xl:pt-10 ">
               What is an investment calculator for?
             </h2>
             <p className="font-medium xl:text-xl">
