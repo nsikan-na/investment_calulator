@@ -279,6 +279,8 @@ export default function Investment() {
           new Date().getFullYear() + y + 1
         }: $${Intl.NumberFormat().format(dataArr[y])})`
       );
+    } else {
+      setMill("");
     }
     setColorArr(
       dataArr.map((data) => {
