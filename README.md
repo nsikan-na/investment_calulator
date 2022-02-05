@@ -2,7 +2,7 @@
 
 ## [Visit Live Site](https://nsikan-investment-calculator.netlify.app/) ##
 
-This is an clone of an investment calculator I use often ([Ramsey Solution Investment Calculator](https://www.ramseysolutions.com/retirement/investment-calculator)).
+This is a clone of an investment calculator I use often ([Ramsey Solution Investment Calculator](https://www.ramseysolutions.com/retirement/investment-calculator)).
 
 
 ## Project Focus
