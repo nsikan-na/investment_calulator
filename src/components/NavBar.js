@@ -1,7 +1,5 @@
 import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import CloseIcon from "@mui/icons-material/Close";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "./Input.css";
 
@@ -47,6 +45,9 @@ export default function NavBar() {
               placeholder="Search"
               className="font-medium rounded-md input px-3 py-2 hover:cursor-pointer"
             />
+            <span>
+              <SearchIcon className="text-sky-600 m-3 scale-125 justify-end hover:text-sky-400 cursor-pointer -translate-x-12" />
+            </span>
             <a className=" text-sky-700 font-bold text-md w-full text-center pt-2 hover:text-sky-400 cursor-pointer hover:underline">
               Sign In
             </a>

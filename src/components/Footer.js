@@ -36,17 +36,17 @@ export default function Footer() {
           </span>
         </div>
         <div className="text-center pt-10 pb-14 flex justify-center space-x-6 md:space-x-4 md:pt-7 md:pb-10  xl:-translate-x-24 xl:space-x-2">
-          <span className="bg-gray-300 rounded-full p-2 xl:p-4 hover:scale-110 hover:bg-gray-300 cursor-pointer">
-            <FacebookIcon />
+          <span className="bg-gray-300 rounded-full p-1 xl:p-4 xl:scale-75 hover:scale-110 hover:bg-gray-300 cursor-pointer">
+            <FacebookIcon className='xl:scale-150' />
           </span>
-          <span className="bg-gray-300 rounded-full p-2 xl:p-4 hover:scale-110 hover:bg-gray-300 cursor-pointer">
-            <TwitterIcon />
+          <span className="bg-gray-300 rounded-full p-1 xl:p-4 xl:scale-75 hover:scale-110 hover:bg-gray-300 cursor-pointer">
+            <TwitterIcon className='xl:scale-150'/>
           </span>
-          <span className="bg-gray-300 rounded-full p-2 xl:p-4 hover:scale-110 hover:bg-gray-300 cursor-pointer">
-            <YouTubeIcon />
+          <span className="bg-gray-300 rounded-full p-1 xl:p-4 xl:scale-75 hover:scale-110 hover:bg-gray-300 cursor-pointer">
+            <YouTubeIcon className='xl:scale-150'/>
           </span>
-          <span className="bg-gray-300 rounded-full p-2 xl:p-4 hover:scale-110 hover:bg-gray-300 cursor-pointer">
-            <InstagramIcon />
+          <span className="bg-gray-300 rounded-full p-1 xl:p-4 xl:scale-75 hover:scale-110 hover:bg-gray-300 cursor-pointer">
+            <InstagramIcon className='xl:scale-150'/>
           </span>
         </div>
       </div>

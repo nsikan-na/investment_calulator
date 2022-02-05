@@ -24,6 +24,7 @@ export default function Investment() {
     chartYears,
     setChartYears,
     setDisplayChart,
+    mill,
     setFormSubmitted,
     setMill,
   } = useContext(ResultContext);
@@ -278,8 +279,6 @@ export default function Investment() {
           new Date().getFullYear() + y + 1
         }: $${Intl.NumberFormat().format(dataArr[y])})`
       );
-    } else {
-      setMill("");
     }
     setColorArr(
       dataArr.map((data) => {
@@ -349,7 +348,7 @@ export default function Investment() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          setHandleSubmit(true);
+          setHandleSubmit(!handleSubmit);
         }}
       >
         <h2 className="font-bold text-4xl pt-10 pb-6">
@@ -403,16 +402,20 @@ export default function Investment() {
           About how much money do you currently have in investment?
         </label>
         <br />
-        <input
-          className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12 hover:cursor-pointer"
-          type="number"
-          name="principal"
-          id="principal"
-          value={principal}
-          onChange={(e) => {
-            setPrincipal(e.target.value);
-          }}
-        />
+        <div className="flex">
+          <i className="text-xl translate-x-5 translate-y-2 relative">$</i>
+          <input
+            className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12 hover:cursor-pointer"
+            type="number"
+            name="principal"
+            id="principal"
+            value={principal}
+            onChange={(e) => {
+              setPrincipal(e.target.value);
+            }}
+          />
+        </div>
+
         <div className={`text-sm font-bold text-red-600 ${principalError}`}>
           {principalErrorMsg}
         </div>
@@ -428,17 +431,20 @@ export default function Investment() {
           How much will you contribute monthly?
         </label>
         <br />
-        <input
-          className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12 hover:cursor-pointer"
-          type="number"
-          name="monthlyDeposit"
-          id="monthlyDeposit"
-          value={monthlyDeposit}
-          min="0"
-          onChange={(e) => {
-            setMonthlyDeposit(e.target.value);
-          }}
-        />
+        <div className="flex">
+          <i className="text-xl translate-x-5 translate-y-2 relative">$</i>
+          <input
+            className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12 hover:cursor-pointer"
+            type="number"
+            name="monthlyDeposit"
+            id="monthlyDeposit"
+            value={monthlyDeposit}
+            min="0"
+            onChange={(e) => {
+              setMonthlyDeposit(e.target.value);
+            }}
+          />
+        </div>
         <div
           className={`text-sm font-bold text-red-600 ${monthlyDepositError}`}
         >
@@ -456,17 +462,20 @@ export default function Investment() {
           What do you think your annual return will be?
         </label>
         <br />
-        <input
-          className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12 hover:cursor-pointer"
-          type="number"
-          id="interestRate"
-          name="interestRate"
-          min="0"
-          value={interestRate}
-          onChange={(e) => {
-            setInterestRate(e.target.value);
-          }}
-        />
+        <div className="flex">
+          <input
+            className="input text-xl pl-5 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12 hover:cursor-pointer"
+            type="number"
+            id="interestRate"
+            name="interestRate"
+            min="0"
+            value={interestRate}
+            onChange={(e) => {
+              setInterestRate(e.target.value);
+            }}
+          />
+          <i className="text-xl -translate-x-10 translate-y-2 relative">%</i>
+        </div>
         <div className={`text-sm font-bold text-red-600 ${interestRateError}`}>
           {interestRateErrorMsg}
         </div>
