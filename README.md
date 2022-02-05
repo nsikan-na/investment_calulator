@@ -9,7 +9,8 @@ This is an clone of an investment calculator I use often ([Ramsey Solution Inves
 * responsive interface
 * turn a psd into a website
 * manage state using React's context api
-* consume charting api(Google Charts) asynchronously based off validated user input. 
+* validate user input
+* consume charting api([QuickChart.io](https://quickchart.io/)) asynchronously based off validated user input. 
 
 ## This was build using
 
