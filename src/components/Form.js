@@ -134,11 +134,7 @@ export default function Investment() {
         setInterestRateErrorMsg(null);
       }
     }
-    setCurAge(curAge.replaceAll(",", ""));
-    setRetireAge(retireAge.replaceAll(",", ""));
-    setPrincipal(principal.replaceAll(",", ""));
-    setMonthlyDeposit(monthlyDeposit.replaceAll(",", ""));
-    setInterestRate(interestRate.replaceAll(",", ""));
+
   }, [curAge, retireAge, principal, monthlyDeposit, interestRate]);
 
   useEffect(() => {
