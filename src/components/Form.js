@@ -24,7 +24,6 @@ export default function Investment() {
     chartYears,
     setChartYears,
     setDisplayChart,
-    mill,
     setFormSubmitted,
     setMill,
   } = useContext(ResultContext);
@@ -38,16 +37,22 @@ export default function Investment() {
   const [test, setTest] = useState(false);
   const [colorArr, setColorArr] = useState([]);
   const [curAgeError, setCurAgeError] = useState("hidden");
-  const [curAgeErrorMsg, setCurAgeErrorMsg] = useState("");
+  const [curAgeErrorMsg, setCurAgeErrorMsg] = useState(null);
   const [retireAgeError, setRetireAgeError] = useState("hidden");
-  const [retireAgeErrorMsg, setRetireAgeErrorMsg] = useState("");
+  const [retireAgeErrorMsg, setRetireAgeErrorMsg] = useState(null);
   const [principalError, setPrincipalError] = useState("hidden");
-  const [principalErrorMsg, setPrincipalErrorMsg] = useState("");
+  const [principalErrorMsg, setPrincipalErrorMsg] = useState(null);
   const [monthlyDepositError, setMonthlyDepositError] = useState("hidden");
-  const [monthlyDepositErrorMsg, setMonthlyDepositErrorMsg] = useState("");
+  const [monthlyDepositErrorMsg, setMonthlyDepositErrorMsg] = useState(null);
   const [interestRateError, setInterestRateError] = useState("hidden");
-  const [interestRateErrorMsg, setInterestRateErrorMsg] = useState("");
+  const [interestRateErrorMsg, setInterestRateErrorMsg] = useState(null);
   const [formError, setFormError] = useState("hidden");
+
+  function isNumeric(value) {
+    //checks if value is numeric
+    //returns boolean value
+    return /^-?\d+$/.test(value);
+  }
 
   useEffect(() => {
     switch (true) {
@@ -66,9 +71,10 @@ export default function Investment() {
         setCurAgeError("hidden");
         break;
       }
+
       default: {
         setCurAgeError("hidden");
-        setCurAgeErrorMsg("");
+        setCurAgeErrorMsg(null);
       }
     }
     switch (true) {
@@ -87,15 +93,16 @@ export default function Investment() {
         setRetireAgeErrorMsg("Current age can't be greater than retire age");
         break;
       }
+
       default: {
         setRetireAgeError("hidden");
-        setRetireAgeErrorMsg("");
+        setRetireAgeErrorMsg(null);
       }
     }
     switch (true) {
       default: {
         setPrincipalError("hidden");
-        setPrincipalErrorMsg("");
+        setPrincipalErrorMsg(null);
       }
     }
     switch (true) {
@@ -104,8 +111,10 @@ export default function Investment() {
         setMonthlyDepositErrorMsg("Deposit must be greater than 0.");
         break;
       }
+
       default: {
         setMonthlyDepositError("hidden");
+        setMonthlyDepositErrorMsg(null);
       }
     }
     switch (true) {
@@ -119,35 +128,69 @@ export default function Investment() {
         setInterestRateErrorMsg("Rate must be less than 100.");
         break;
       }
+
       default: {
         setInterestRateError("hidden");
-        setInterestRateErrorMsg("");
+        setInterestRateErrorMsg(null);
       }
     }
   }, [curAge, retireAge, principal, monthlyDeposit, interestRate]);
 
   useEffect(() => {
     if (!handleSubmit) return;
-    if (!curAge) {
+    setHandleSubmit(false);
+    switch (true) {
+      case !isNumeric(curAge): {
+        setCurAgeError("block");
+        setCurAgeErrorMsg("Please enter numbers only.");
+        break;
+      }
+      case !isNumeric(principal): {
+        setPrincipalError("block");
+        setPrincipalErrorMsg("Please enter numbers only.");
+        break;
+      }
+      case !isNumeric(retireAge): {
+        setRetireAgeError("block");
+        setRetireAgeErrorMsg("Please enter numbers only.");
+        break;
+      }
+      case !isNumeric(monthlyDeposit): {
+        setMonthlyDepositError("block");
+        setMonthlyDepositErrorMsg("Please enter numbers only.");
+        break;
+      }
+      case !isNumeric(interestRate): {
+        setInterestRateError("block");
+        setInterestRateErrorMsg("Please enter numbers only.");
+        break;
+      }
+    }
+    if (curAgeErrorMsg != null) {
       setFormError("block");
       return;
     }
-    if (!retireAge) {
+
+    if (retireAgeErrorMsg != null) {
       setFormError("block");
       return;
     }
-    if (!principal) {
+
+    if (principalErrorMsg != null) {
       setFormError("block");
       return;
     }
-    if (!monthlyDeposit) {
+
+    if (monthlyDepositErrorMsg != null) {
       setFormError("block");
       return;
     }
-    if (!interestRate) {
+
+    if (interestRateErrorMsg != null) {
       setFormError("block");
       return;
     }
+
     setFormError("hidden");
     setFormSubmitted(true);
     setInvestment(
