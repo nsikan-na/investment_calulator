@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import { ResultContext } from "../context";
 import { CircularProgress } from "@material-ui/core";
-const QuickChart = require("quickchart-js");
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import Image from "next/image";
@@ -48,6 +47,10 @@ export default function Investment() {
       },
     });
     const data = await response.json();
+    setSpinner(false);
+    if (!data.success) {
+      return setError(data.message);
+    }
     const {
       investment,
       investMoney,
@@ -63,7 +66,8 @@ export default function Investment() {
       mill,
       years,
     } = data;
-    router.push("#chart");
+
+    router.replace("#chart");
     setInvestment(investment);
     setInvestMoney(investMoney);
     setInvestCoffee(investCoffee);
@@ -86,11 +90,6 @@ export default function Investment() {
         className="mx-auto w-11/12"
       />
     );
-
-    setSpinner(false);
-    if (!data.success) {
-      setError(data.message);
-    }
   }
 
   return (
@@ -130,7 +129,6 @@ export default function Investment() {
           type="number"
           name="retireAge"
           id="retireAge"
-          placeholder="67"
           min="0"
           max="100"
         />
