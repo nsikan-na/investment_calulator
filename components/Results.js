@@ -35,7 +35,9 @@ export default function Results() {
           <div className=" mx-auto bg-gray-50 shadow-md w-10/12 xl:bg-white ">
             <div className="bg-lime-500 pt-1 "></div>
             <div className="mx-auto  w-8/12 md:w-10/12 mb-5 xl:w-11/12 ">
-              <h2 className="font-bold text-4xl pt-10 pb-6">Your Results</h2>
+              <h2 className="font-bold text-4xl pt-10 pb-6" id="result">
+                Your Results
+              </h2>
               <div className="">
                 <div className="text-gray-500 font-bold text-left xl:flex  xl:pb-5 ">
                   <div className=" xl:self-center ">
@@ -173,7 +175,10 @@ export default function Results() {
           </div>
         </div>
       </div>
-      <div className=" pb-8 shadow md:border-gray-300 md:shadow-none md:border-b font-bold">
+      <div
+        className=" pb-8 shadow md:border-gray-300 md:shadow-none md:border-b font-bold"
+        id="chart"
+      >
         <div className="  bg-white pt-6  flex justify-center items-center ">
           {displayChart}
         </div>

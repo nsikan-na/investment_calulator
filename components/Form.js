@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { useRouter } from "next/router";
 import { ResultContext } from "../context";
 import { CircularProgress } from "@material-ui/core";
 const QuickChart = require("quickchart-js");
@@ -6,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import Image from "next/image";
 export default function Investment() {
+  const router = useRouter();
   const {
     investment,
     setYears,
@@ -61,6 +63,7 @@ export default function Investment() {
       mill,
       years,
     } = data;
+    router.push("#chart");
     setInvestment(investment);
     setInvestMoney(investMoney);
     setInvestCoffee(investCoffee);
@@ -225,7 +228,6 @@ export default function Investment() {
               role="status"
               aria-hidden="true"
             />
-            <span className="visually-hidden">Loading...</span>
           </Button>
         ) : (
           <button className="text-white font-extrabold bg-sky-600 px-7 py-3 rounded-md my-6 shadow md:px-5 md:py-2 hover:bg-sky-500 ">

@@ -187,7 +187,6 @@ export default async function handler(req, res) {
 
       const fetchChart = await fetch(x.getUrl());
       const chartURL = fetchChart.url;
-
       return res.json({
         success: true,
         investment,
