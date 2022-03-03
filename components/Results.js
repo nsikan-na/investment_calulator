@@ -44,7 +44,7 @@ export default function Results() {
                         width="100%"
                         height="100%"
                         alt="savings icon"
-                        src="images/savings.jpg"
+                        src="/images/savings.jpg"
                         className="inline "
                       />
                       ESTIMATED RETIREMENT SAVINGS

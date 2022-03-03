@@ -37,7 +37,7 @@ export default function CTA() {
                 Retirement and Investment Guidance
               </div>
               <div className="inline sm:flex justify-center md:my-4">
-                <Image
+                <Image 
                   width="100%"
                   height="100%"
                   alt="list icon"
