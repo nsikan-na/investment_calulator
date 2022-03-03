@@ -28,7 +28,11 @@ export default function Investment() {
   const [spinner, setSpinner] = useState(false);
   async function handleForm(e) {
     setSpinner(true);
-
+    setDisplayChart(
+      <div className="p-40">
+        <CircularProgress />
+      </div>
+    );
     const response = await fetch(`/api/form`, {
       method: "POST",
       body: JSON.stringify({
@@ -42,16 +46,14 @@ export default function Investment() {
         "Content-Type": "application/json",
       },
     });
+
     const data = await response.json();
     setSpinner(false);
+    setDisplayChart(<div className="p-40"></div>);
     if (!data.success) {
       return setError(data.message);
     }
-    setDisplayChart(
-      <div className="p-40">
-        <CircularProgress />
-      </div>
-    );
+
     const {
       investment,
       investMoney,
@@ -68,7 +70,6 @@ export default function Investment() {
       years,
     } = data;
 
-    router.replace("#chart");
     setInvestment(investment);
     setInvestMoney(investMoney);
     setInvestCoffee(investCoffee);
