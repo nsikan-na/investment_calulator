@@ -1,9 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
-import { ResultContext } from "../Context/ResultContext";
-import "./Input.css";
-import QuickChart from "quickchart-js/build/quickchart.esm.js";
+import { ResultContext } from "../context";
 import { CircularProgress } from "@material-ui/core";
-
+const QuickChart = require("quickchart-js");
+import Image from 'next/image'
 export default function Investment() {
   const {
     investment,
@@ -134,7 +133,6 @@ export default function Investment() {
         setInterestRateErrorMsg(null);
       }
     }
-
   }, [curAge, retireAge, principal, monthlyDeposit, interestRate]);
 
   useEffect(() => {
@@ -375,7 +373,15 @@ export default function Investment() {
         );
         await fetch(myChart.getUrl()).then((x) => {
           setTimeout(() => {
-            setDisplayChart(<img src={x.url} className="mx-auto w-11/12" />);
+            setDisplayChart(
+              <Image
+                width="100%"
+                height="100%"
+                alt="generated chart"
+                src={x.url}
+                className="mx-auto w-11/12"
+              />
+            );
           }, 500);
         });
       } catch (err) {

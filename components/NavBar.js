@@ -1,13 +1,15 @@
 import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import "./Input.css";
-
+import Image from "next/image";
 export default function NavBar() {
   return (
     <div className="w-screen py-2 shadow-md 2xl:w-7/12 2xl:mx-auto 2xl:shadow-none">
       <div className="flex xl:hidden">
-        <img
+        <Image
+          width="100%"
+          height="100%"
+          alt="ramsey logo"
           src="/images/logo.jpg"
           className="object-contain justify-start left-0 "
         />
@@ -16,28 +18,19 @@ export default function NavBar() {
           <nav className="text-sky-600 font-bold my-3 mr-4 text-lg right-0 justify-end md:mr-7 md:ml-3 md:text-lg hover:text-sky-400 cursor-pointer hover:underline">
             MENU
           </nav>
-          {/* <ArrowForwardIosIcon/> */}
-
-          {/* <CloseIcon/> */}
-          {/* <div>
-          <li>Guided Plans</li>
-          <li>Shows</li>
-          <li>Personalities</li>
-          <li>Trusted Pros</li>
-          <li>FreeTools</li>
-          <li>Articles</li>
-          <ShoppingCartIcon />
-          <li>Store</li>
-          <div>Sign In</div>
-          <button>Get Started</button>
-        </div> */}
         </div>
       </div>
 
       <div className="hidden xl:block mx-32 ">
         <div className="flex ">
           <div className="py-3 w-full  ">
-            <img src="/images/logo.jpg" className="object-contain scale-125 " />
+            <Image
+              width="100%"
+              height="100%"
+              alt="ramsey logo"
+              src="/images/logo.jpg"
+              className="object-contain scale-125 "
+            />
           </div>
           <div className="  self-center flex w-9/12 justify-end">
             <input

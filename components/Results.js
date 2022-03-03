@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { ResultContext } from "../Context/ResultContext";
-
+import { ResultContext } from "../context";
+import Image from "next/image";
 export default function Results() {
   const {
     investment,
@@ -40,7 +40,13 @@ export default function Results() {
                 <div className="text-gray-500 font-bold text-left xl:flex  xl:pb-5 ">
                   <div className=" xl:self-center ">
                     <div className="xl:text-lg">
-                      <img src="images/savings.jpg" className="inline " />
+                      <Image
+                        width="100%"
+                        height="100%"
+                        alt="savings icon"
+                        src="images/savings.jpg"
+                        className="inline "
+                      />
                       ESTIMATED RETIREMENT SAVINGS
                     </div>
                     <p className="w-7/12 text-base font-medium text-left md:w-9/12 xl:text-lg">
@@ -63,7 +69,10 @@ export default function Results() {
                 </div>
                 <div className="xl:w-11/12">
                   <div className="xl:flex xl:-mr-14">
-                    <img
+                    <Image
+                      width="100%"
+                      height="100%"
+                      alt="graph icon"
                       src="/images/landscape.jpg"
                       className=" mx-auto mb-4 md:scale-75 md:mb-0 xl:object-contain xl:-translate-y-3"
                     />
@@ -81,7 +90,10 @@ export default function Results() {
                     </button>
                   </div>
                   <div className="xl:flex xl:-mr-12">
-                    <img
+                    <Image
+                      width="100%"
+                      height="100%"
+                      alt="money icon"
                       src="/images/money.jpg"
                       className=" mx-auto mb-4 md:scale-75 md:mb-0 xl:object-contain xl:-translate-y-3"
                     />
@@ -99,7 +111,10 @@ export default function Results() {
                     </button>
                   </div>
                   <div className="xl:flex xl:-mr-10">
-                    <img
+                    <Image
+                      width="100%"
+                      height="100%"
+                      alt="checklist icon"
                       src="/images/list.jpg"
                       className=" mx-auto mb-4 md:scale-75 md:mb-0 xl:object-contain xl:-translate-y-3 xl:mr-3"
                     />
@@ -168,7 +183,10 @@ export default function Results() {
         <h2 className="font-bold text-4xl my-7 md:text-3xl ">What if I...</h2>
         <div className="lg:grid lg:grid-cols-3">
           <div className="pb-5">
-            <img
+            <Image
+              width="100%"
+              height="100%"
+              alt="money icon"
               src="/images/money2.jpg"
               className=" mx-auto mb-4 md:scale-75 md:mb-0 lg:pb-3 xl:pb-0"
             />
@@ -186,7 +204,10 @@ export default function Results() {
             <p className="font-medium">in additional growth</p>
           </div>
           <div className="pb-5 lg:mx-1">
-            <img
+            <Image
+              width="100%"
+              height="100%"
+              alt="coffee icon"
               src="/images/coffee.jpg"
               className=" mx-auto mb-4 md:scale-75 md:mb-0"
             />
@@ -205,7 +226,10 @@ export default function Results() {
             <p className="font-medium">in additional growth</p>
           </div>
           <div>
-            <img
+            <Image
+              width="100%"
+              height="100%"
+              alt="food icon"
               src="/images/plate.jpg"
               className=" mx-auto mb-4 md:scale-75 md:mb-0"
             />

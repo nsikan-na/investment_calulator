@@ -3,12 +3,15 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
-
+import Image from "next/image";
 export default function Footer() {
   return (
     <div className="mt-14 pb-20 bg-gray-200 pt-10 md:pb-10 ">
       <div className="xl:flex  xl:mx-auto 2xl:w-7/12">
-        <img
+        <Image
+          width="100%"
+          height="100%"
+          alt="ramsey logo"
           src="/images/logo-fade.png"
           className="w-9/12 mx-auto mb-8 md:w-3/12 md:mb-4r xl:scale-75  "
         />
@@ -37,16 +40,16 @@ export default function Footer() {
         </div>
         <div className="text-center pt-10 pb-14 flex justify-center space-x-6 md:space-x-4 md:pt-7 md:pb-10  xl:-translate-x-24 xl:space-x-2">
           <span className="bg-gray-300 rounded-full p-1 xl:p-4 xl:scale-75 hover:scale-110 hover:bg-gray-300 cursor-pointer">
-            <FacebookIcon className='xl:scale-150' />
+            <FacebookIcon className="xl:scale-150" />
           </span>
           <span className="bg-gray-300 rounded-full p-1 xl:p-4 xl:scale-75 hover:scale-110 hover:bg-gray-300 cursor-pointer">
-            <TwitterIcon className='xl:scale-150'/>
+            <TwitterIcon className="xl:scale-150" />
           </span>
           <span className="bg-gray-300 rounded-full p-1 xl:p-4 xl:scale-75 hover:scale-110 hover:bg-gray-300 cursor-pointer">
-            <YouTubeIcon className='xl:scale-150'/>
+            <YouTubeIcon className="xl:scale-150" />
           </span>
           <span className="bg-gray-300 rounded-full p-1 xl:p-4 xl:scale-75 hover:scale-110 hover:bg-gray-300 cursor-pointer">
-            <InstagramIcon className='xl:scale-150'/>
+            <InstagramIcon className="xl:scale-150" />
           </span>
         </div>
       </div>

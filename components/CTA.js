@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { ResultContext } from "../Context/ResultContext";
+import { ResultContext } from "../context";
+import Image from "next/image";
 
 export default function CTA() {
   const { investment, formSubmitted } = useContext(ResultContext);
@@ -36,13 +37,22 @@ export default function CTA() {
                 Retirement and Investment Guidance
               </div>
               <div className="inline sm:flex justify-center md:my-4">
-                <img src="/images/list2.jpg" className="mx-auto md:m-0 " />
+                <Image
+                  width="100%"
+                  height="100%"
+                  alt="list icon"
+                  src="/images/list2.jpg"
+                  className="mx-auto md:m-0 "
+                />
                 <div className="font-medium pt-2 md:ml-6">
                   Custom retirement and investment plans
                 </div>
               </div>
               <div className="inline sm:flex justify-center  md:my-4  ">
-                <img
+                <Image
+                  width="100%"
+                  height="100%"
+                  alt="people icon"
                   src="/images/people.jpg"
                   className="mx-auto md:m-0 xl:-ml-10"
                 />
@@ -51,7 +61,10 @@ export default function CTA() {
                 </div>
               </div>
               <div className="inline sm:flex justify-center  md:my-4  ">
-                <img
+                <Image
+                  width="100%"
+                  height="100%"
+                  alt="grid icon"
                   src="/images/square.jpg"
                   className="mx-auto md:m-0 xl:-ml-16"
                 />
@@ -60,7 +73,10 @@ export default function CTA() {
                 </div>
               </div>
               <div className="inline sm:flex justify-center   md:my-4 ">
-                <img
+                <Image
+                  width="100%"
+                  height="100%"
+                  alt="shaking hands icon"
                   src="/images/hands.jpg"
                   className="mx-auto md:m-0 xl:-ml-36"
                 />
