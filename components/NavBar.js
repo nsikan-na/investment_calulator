@@ -7,7 +7,7 @@ export default function NavBar() {
     <div className="w-screen py-2 shadow-md 2xl:w-7/12 2xl:mx-auto 2xl:shadow-none">
       <div className="flex xl:hidden">
         <Image
-          width="100%"
+          width="400%"
           height="100%"
           alt="ramsey logo"
           src="/images/logo.jpg"
@@ -25,7 +25,7 @@ export default function NavBar() {
         <div className="flex ">
           <div className="py-3 w-full  ">
             <Image
-              width="100%"
+              width="400%"
               height="100%"
               alt="ramsey logo"
               src="/images/logo.jpg"

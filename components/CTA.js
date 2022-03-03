@@ -38,8 +38,8 @@ export default function CTA() {
               </div>
               <div className="inline sm:flex justify-center md:my-4">
                 <Image 
-                  width="100%"
-                  height="100%"
+                  width="50%"
+                  height="50%"
                   alt="list icon"
                   src="/images/list2.jpg"
                   className="mx-auto md:m-0 "
@@ -50,8 +50,8 @@ export default function CTA() {
               </div>
               <div className="inline sm:flex justify-center  md:my-4  ">
                 <Image
-                  width="100%"
-                  height="100%"
+                  width="50%"
+                  height="50%"
                   alt="people icon"
                   src="/images/people.jpg"
                   className="mx-auto md:m-0 xl:-ml-10"
@@ -62,8 +62,8 @@ export default function CTA() {
               </div>
               <div className="inline sm:flex justify-center  md:my-4  ">
                 <Image
-                  width="100%"
-                  height="100%"
+                  width="50%"
+                  height="50%"
                   alt="grid icon"
                   src="/images/square.jpg"
                   className="mx-auto md:m-0 xl:-ml-16"
@@ -74,8 +74,8 @@ export default function CTA() {
               </div>
               <div className="inline sm:flex justify-center   md:my-4 ">
                 <Image
-                  width="100%"
-                  height="100%"
+                  width="50%"
+                  height="50%"
                   alt="shaking hands icon"
                   src="/images/hands.jpg"
                   className="mx-auto md:m-0 xl:-ml-36"
