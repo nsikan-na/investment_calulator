@@ -28,11 +28,7 @@ export default function Investment() {
   const [spinner, setSpinner] = useState(false);
   async function handleForm(e) {
     setSpinner(true);
-    setDisplayChart(
-      <div className="p-40">
-        <CircularProgress />
-      </div>
-    );
+
     const response = await fetch(`/api/form`, {
       method: "POST",
       body: JSON.stringify({
@@ -51,6 +47,11 @@ export default function Investment() {
     if (!data.success) {
       return setError(data.message);
     }
+    setDisplayChart(
+      <div className="p-40">
+        <CircularProgress />
+      </div>
+    );
     const {
       investment,
       investMoney,
@@ -214,15 +215,7 @@ export default function Investment() {
           ""
         )}
         {spinner ? (
-          <Button variant="primary" disabled>
-            <Spinner
-              as="span"
-              animation="border"
-              size="sm"
-              role="status"
-              aria-hidden="true"
-            />
-          </Button>
+          <CircularProgress />
         ) : (
           <button className="text-white font-extrabold bg-sky-600 px-7 py-3 rounded-md my-6 shadow md:px-5 md:py-2 hover:bg-sky-500 ">
             Calculate
