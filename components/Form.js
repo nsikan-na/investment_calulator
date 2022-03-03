@@ -116,7 +116,6 @@ export default function Investment() {
           type="number"
           id="curAge"
           name="curAge"
-          value="20"
           min="0"
           max="100"
         />
@@ -131,7 +130,7 @@ export default function Investment() {
           type="number"
           name="retireAge"
           id="retireAge"
-          value="67"
+          placeholder="67"
           min="0"
           max="100"
         />
@@ -152,7 +151,6 @@ export default function Investment() {
             type="number"
             name="principal"
             id="principal"
-            value="300"
           />
         </div>
 
@@ -177,7 +175,6 @@ export default function Investment() {
             name="monthlyDeposit"
             id="monthlyDeposit"
             min="0"
-            value="500"
           />
         </div>
         <div className={`text-sm font-bold text-red-600 `}></div>
@@ -198,7 +195,6 @@ export default function Investment() {
             className="input text-xl pl-5 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12 hover:cursor-pointer"
             type="number"
             id="interestRate"
-            value="10"
             name="interestRate"
             min="0"
           />
