@@ -32,7 +32,7 @@ export default function Results() {
         }}
       >
         <div className="w-full ">
-          <div className=" mx-auto bg-gray-50 shadow-md w-10/12 xl:bg-white ">
+          <div className=" mx-auto bg-gray-50 shadow-md w-11/12 xl:bg-white ">
             <div className="bg-lime-500 pt-1 "></div>
             <div className="mx-auto  w-8/12 md:w-10/12 mb-5 xl:w-11/12 ">
               <h2 className="font-bold text-4xl pt-10 pb-6" id="result">
@@ -51,14 +51,13 @@ export default function Results() {
                       />
                       ESTIMATED RETIREMENT SAVINGS
                     </div>
-                    <p className="w-7/12 text-base font-medium text-left md:w-9/12 xl:text-lg">
+                    <p className="w-7/12 text-base font-medium text-left md:w-9/12 lg:w-full xl:text-lg">
                       In {years} years, your investment could be worth:
                     </p>
                     <div className="pt-0.5 bg-gray-300 my-5 xl:hidden"></div>
                   </div>
-
-                  <div>
-                    <div className="text-center  xl:pl-32 xl:justify-self-end xl:text-left">
+                  <div className>
+                    <div className="text-center lg:justify-center lg:text-left">
                       <div className="text-lime-500 font-semibold pb-8">
                         <span className="text-4xl md:text-5xl ">
                           {`$${Intl.NumberFormat().format(
@@ -69,8 +68,8 @@ export default function Results() {
                     </div>
                   </div>
                 </div>
-                <div className="xl:w-11/12">
-                  <div className="xl:flex xl:justify-evenly xl:-mr-14">
+                {/* <div className="xl:w-11/12">
+                  <div className="xl:flex xl:justify-evenly ">
                     <Image
                       width="50%"
                       height="50%"
@@ -82,7 +81,7 @@ export default function Results() {
                       Want to make a plan to meet your investment goals?
                     </div>
                     <button
-                      className={`bg-sky-700 rounded-md text-white px-4 py-2 text-lg font-bold mb-6 md:text-base md:py-2 md:px-3 xl:whitespace-nowrap hover:bg-sky-600 ${
+                      className={`bg-sky-700 rounded-md text-white px-4 py-2 text-lg font-bold mb-6 md:text-base md:py-2 md:px-3  xl:whitespace-nowrap hover:bg-sky-600 ${
                         !formSubmitted
                           ? "cursor-auto hover:bg-sky-700"
                           : "hover:bg-sky-600 cursor:pointer"
@@ -91,7 +90,7 @@ export default function Results() {
                       Work with a Pro
                     </button>
                   </div>
-                  <div className="xl:flex xl:justify-evenly xl:-mr-12">
+                  <div className="xl:flex xl:justify-evenly">
                     <Image
                       width="75%"
                       height="75%"
@@ -103,7 +102,7 @@ export default function Results() {
                       Are you saving enough to retire the way you want?
                     </div>
                     <button
-                      className={`bg-sky-700 rounded-md text-white px-4 py-2 text-lg font-bold mb-6 md:text-base md:py-2 md:px-9 xl:whitespace-nowrap xl:-mr-30 hover:bg-sky-600  ${
+                      className={`bg-sky-700 rounded-md text-white px-4 py-2 text-lg font-bold mb-6 md:text-base md:py-2 md:px-3  xl:whitespace-nowrap hover:bg-sky-600  ${
                         !formSubmitted
                           ? "cursor-auto hover:bg-sky-700"
                           : "hover:bg-sky-600 cursor:pointer"
@@ -112,7 +111,7 @@ export default function Results() {
                       Find Out
                     </button>
                   </div>
-                  <div className="xl:flex xl:justify-evenly xl:-mr-10">
+                  <div className="xl:flex xl:justify-evenly">
                     <Image
                       width="50%"
                       height="50%"
@@ -125,7 +124,7 @@ export default function Results() {
                       Is money stress stopping you from investing more?
                     </div>
                     <button
-                      className={`bg-sky-700 rounded-md text-white mb-8 px-4 py-2 text-lg font-bold mb-6md:text-base md:py-1 md:px-3 md:mb-5 xl:whitespace-nowrap xl:w-3/12 xl:ml-1 xl:translate-x-3 hover:bg-sky-600  ${
+                      className={`bg-sky-700 rounded-md text-white px-4 py-2 text-lg font-bold mb-6 md:text-base md:py-2 md:px-3  xl:whitespace-nowrap hover:bg-sky-600   ${
                         !formSubmitted
                           ? "cursor-auto hover:bg-sky-700"
                           : "hover:bg-sky-600 cursor:pointer"
@@ -134,7 +133,7 @@ export default function Results() {
                       Take Control
                     </button>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -184,9 +183,9 @@ export default function Results() {
         </div>
         <div>{mill}</div>
       </div>
-      <div className="w-9/12 mx-auto pb-10 ">
+      <div className="w-9/12 mx-auto pb-10 lg:w-full">
         <h2 className="font-bold text-4xl my-7 md:text-3xl ">What if I...</h2>
-        <div className="lg:grid lg:grid-cols-3">
+        <div className="lg:flex lg:justify-between">
           <div className="pb-5">
             <Image
               width="50%"
@@ -195,12 +194,12 @@ export default function Results() {
               src="/images/money2.jpg"
               className=" mx-auto mb-4 md:scale-75 md:mb-0 lg:pb-3 xl:pb-0"
             />
-            <div className="font-bold text-xl text-gray-700 mb-2 md:text-lg lg:pb-4 xl:pb-0 xl:font-extrabold">
+            <div className="font-bold text-xl text-gray-700 mb-2 md:text-lg lg:pb-1  xl:pb-0 xl:font-extrabold">
               SAVED AN EXTRA $100 PER MONTH.
             </div>
-            <p className=" text-gray-700 mb-2 font-medium">
+            {/* <p className=" text-gray-700 mb-2 font-medium">
               Adds $100 a month in contributions, but creates
-            </p>
+            </p> */}
             <div className="text-lime-500 font-semibold ">
               <span className="font-bold text-2xl inline md:text-2xl xl:font-extrabold">
                 {`$${investMoney}`}
@@ -208,7 +207,7 @@ export default function Results() {
             </div>
             <p className="font-medium">in additional growth</p>
           </div>
-          <div className="pb-5 lg:mx-1">
+          <div className="pb-5 mx-3">
             <Image
               width="50%"
               height="50%"
@@ -219,9 +218,9 @@ export default function Results() {
             <div className="font-bold text-xl text-gray-700 mb-2 md:text-lg xl:font-extrabold">
               GAVE UP DAILY COFFEE PURCHASES.
             </div>
-            <p className="text-gray-700 mb-2 font-medium">
+            {/* <p className="text-gray-700 mb-2 font-medium">
               Adds $128 a month in contributions, but creates
-            </p>
+            </p> */}
             <div className="text-lime-500 font-semibold ">
               <span className="font-bold text-2xl inline md:text-2xl xl:font-extrabold">
                 {" "}
@@ -241,9 +240,9 @@ export default function Results() {
             <div className="font-bold text-xl text-gray-700 mb-2 md:text-lg xl:font-extrabold">
               GAVE UP WEEKLY RESTAURANT VISITS.
             </div>
-            <p className="text-gray-700 mb-2 font-medium">
+            {/* <p className="text-gray-700 mb-2 font-medium">
               Adds $200 a month in contributions, but creates
-            </p>
+            </p> */}
             <div className="text-lime-500 font-semibold ">
               {" "}
               <span className="font-bold text-2xl inline xl:font-extrabold">

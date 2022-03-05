@@ -4,7 +4,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Image from "next/image";
 export default function NavBar() {
   return (
-    <div className="w-screen py-2 shadow-md 2xl:w-7/12 2xl:mx-auto 2xl:shadow-none">
+    <div className="w-screen py-2 shadow-md  2xl:w-7/12 2xl:mx-auto 2xl:shadow-none">
       <div className="flex xl:hidden">
         <Image
           width="400%"
@@ -41,17 +41,17 @@ export default function NavBar() {
             <span>
               <SearchIcon className="text-sky-600 m-3 scale-125 justify-end hover:text-sky-400 cursor-pointer -translate-x-12" />
             </span>
-            <a className=" text-sky-700 font-bold text-md w-full text-center pt-2 hover:text-sky-400 cursor-pointer hover:underline">
+            <a className=" text-sky-700 font-bold text-md w-full text-center pt-2 truncate hover:text-sky-400 cursor-pointer hover:underline">
               Sign In
             </a>
-            <button className="text-white bg-sky-700 px-1 rounded-md  -mt-2 ml-6 w-full font-bold 2xl:whitespace-nowrap hover:bg-sky-600 cursor-pointer hover:underline">
+            <button className="text-white bg-sky-700 px-1 rounded-md   -mt-2 ml-6 w-full font-bold 2xl:whitespace-nowrap hover:bg-sky-600 cursor-pointer hover:underline">
               Get Started
             </button>
           </div>
         </div>
         <div>
           <div className="pt-1 bg-gray-100 my-1"></div>
-          <ul className="flex justify-between text-lg font-bold text-sky-600 py-4 w-9/12">
+          <ul className="flex justify-evenly space-x-3 text-lg font-bold text-sky-600 py-4 w-max">
             <li className="hover:text-sky-400 cursor-pointer hover:underline">
               Guided Plans
             </li>

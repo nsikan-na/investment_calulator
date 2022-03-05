@@ -113,7 +113,7 @@ export default function Investment() {
         </label>
         <br />
         <input
-          className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-5 md:w-6/12 lg:w-4/12 xl:w-3/12 hover:cursor-pointer"
+          className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-5 md:w-6/12 lg:w-4/12  hover:cursor-pointer"
           type="number"
           id="curAge"
           name="curAge"
@@ -127,7 +127,7 @@ export default function Investment() {
         </label>
         <br />
         <input
-          className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-1 md:w-6/12 lg:w-4/12 xl:w-3/12 hover:cursor-pointer"
+          className="input text-xl pl-4 py-1 rounded-md w-5/12 mt-1 mb-1 md:w-6/12 lg:w-4/12 hover:cursor-pointer"
           type="number"
           name="retireAge"
           id="retireAge"
@@ -147,7 +147,7 @@ export default function Investment() {
         <div className="flex">
           <i className="text-xl translate-x-5 translate-y-2 relative">$</i>
           <input
-            className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12 hover:cursor-pointer"
+            className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12  hover:cursor-pointer"
             type="number"
             name="principal"
             id="principal"
@@ -170,7 +170,7 @@ export default function Investment() {
         <div className="flex">
           <i className="text-xl translate-x-5 translate-y-2 relative">$</i>
           <input
-            className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12 hover:cursor-pointer"
+            className="input text-xl pl-8 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 hover:cursor-pointer"
             type="number"
             name="monthlyDeposit"
             id="monthlyDeposit"
@@ -192,7 +192,7 @@ export default function Investment() {
         <br />
         <div className="flex">
           <input
-            className="input text-xl pl-5 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12 xl:w-6/12 hover:cursor-pointer"
+            className="input text-xl pl-5 py-1 rounded-md w-9/12 mt-1 mb-1 md:w-full lg:w-8/12  hover:cursor-pointer"
             type="number"
             id="interestRate"
             name="interestRate"
