@@ -10,10 +10,10 @@ export default function Header() {
           </h1>
           <div className="bg-orange-400 p-0.5 w-3/12 md:w-20"></div>
           <p className="mt-3 text-2xl font-medium md:text-3xl md:font-normal xl:font-semibold">
-            Put your current investment totals, your contributions and your
+           {` Put your current investment totals, your contributions and your
             annual rate of return into the investment calculator, and we'll show
             you how much you can expect to have in your investment portfolio
-            over time.
+            over time.`}
           </p>
         </div>
       </div>

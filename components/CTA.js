@@ -22,9 +22,9 @@ export default function CTA() {
                 {`$${Intl.NumberFormat().format(Math.ceil(investment))}.`}
               </h2>
               <p className="w-10/12 font-semibold mx-auto">
-                Now that you've calculated your estimated retirement savings,
+                {` Now that you've calculated your estimated retirement savings,
                 your next step is to use a Smartvestor Pro to build your custom
-                retirement plan.
+                retirement plan.`}
               </p>
               <button className="bg-emerald-500 px-4 py-2 rounded-md my-4 xl:mb-8 xl:ml-10 hover:bg-emerald-400">
                 Find a Pro Now
@@ -37,7 +37,7 @@ export default function CTA() {
                 Retirement and Investment Guidance
               </div>
               <div className="inline sm:flex justify-center md:my-4">
-                <Image 
+                <Image
                   width="50%"
                   height="50%"
                   alt="list icon"
@@ -93,36 +93,36 @@ export default function CTA() {
               What is an investment calculator for?
             </h2>
             <p className="font-medium xl:text-xl">
-              An investment calculator is a simple way to estimate how your
+              {`An investment calculator is a simple way to estimate how your
               money will grow if you keep investing at the rate you're going
-              right now.
+                right now.`}
             </p>
             <br />
             <p className="font-medium xl:text-xl">
-              But remember—an investment calculator doesn't replace professional
+              {`But remember—an investment calculator doesn't replace professional
               advice! If you need help with your investments, we recommend
               working with an expert who'll help you understand what you're
-              investing in. If that's your next step, we can help you{" "}
+              investing in. If that's your next step, we can help you`}
               <span className="underline text-blue-600 hover:text-sky-400 cursor-pointer hover:underline">
-                connect with a pro
-              </span>{" "}
-              near you.
+                {`connect with a pro`}
+              </span>
+              {`near you.`}
             </p>
             <div>
               <div className="font-bold text-2xl pb-6 pt-8 xl:text-3xl ">
                 How much money am I really going to need?
               </div>
               <p className="font-medium xl:text-xl">
-                The real question is—what do you really want to do? Do you want
+               {` The real question is—what do you really want to do? Do you want
                 to travel the world? Spend more time with your family? Get that
                 beach or mountain house you always dreamed about? C'mon, don't
-                limit yourself!
+                limit yourself!`}
               </p>
               <br />
               <p className="font-medium xl:text-xl">
                 Got your vision?{" "}
                 <span className="underline text-blue-600 hover:text-sky-400 cursor-pointer hover:underline">
-                  Figure out how much you'll need to make it a reality
+                 {` Figure out how much you'll need to make it a reality`}
                 </span>
                 .
               </p>

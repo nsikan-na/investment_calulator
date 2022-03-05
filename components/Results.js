@@ -38,7 +38,7 @@ export default function Results() {
               <h2 className="font-bold text-4xl pt-10 pb-6" id="result">
                 Your Results
               </h2>
-              <div className="">
+              <div >
                 <div className="text-gray-500 font-bold text-left xl:flex  xl:pb-5 ">
                   <div className=" xl:self-center ">
                     <div className="xl:text-lg">
@@ -68,72 +68,6 @@ export default function Results() {
                     </div>
                   </div>
                 </div>
-                {/* <div className="xl:w-11/12">
-                  <div className="xl:flex xl:justify-evenly ">
-                    <Image
-                      width="50%"
-                      height="50%"
-                      alt="graph icon"
-                      src="/images/landscape.jpg"
-                      className=" mx-auto mb-4 md:scale-75 md:mb-0 xl:object-contain xl:-translate-y-3"
-                    />
-                    <div className="font-bold text-xl text-center mb-7 md:text-lg xl:text-left self-center xl:mx-6 xl:w-7/12">
-                      Want to make a plan to meet your investment goals?
-                    </div>
-                    <button
-                      className={`bg-sky-700 rounded-md text-white px-4 py-2 text-lg font-bold mb-6 md:text-base md:py-2 md:px-3  xl:whitespace-nowrap hover:bg-sky-600 ${
-                        !formSubmitted
-                          ? "cursor-auto hover:bg-sky-700"
-                          : "hover:bg-sky-600 cursor:pointer"
-                      }`}
-                    >
-                      Work with a Pro
-                    </button>
-                  </div>
-                  <div className="xl:flex xl:justify-evenly">
-                    <Image
-                      width="75%"
-                      height="75%"
-                      alt="money icon"
-                      src="/images/money.jpg"
-                      className=" mx-auto mb-4 md:scale-75 md:mb-0 xl:object-contain xl:-translate-y-3"
-                    />
-                    <div className="font-bold text-xl text-center mb-7 md:text-lg xl:text-left self-center xl:mx-3 xl:w-10/12 xl:ml-8">
-                      Are you saving enough to retire the way you want?
-                    </div>
-                    <button
-                      className={`bg-sky-700 rounded-md text-white px-4 py-2 text-lg font-bold mb-6 md:text-base md:py-2 md:px-3  xl:whitespace-nowrap hover:bg-sky-600  ${
-                        !formSubmitted
-                          ? "cursor-auto hover:bg-sky-700"
-                          : "hover:bg-sky-600 cursor:pointer"
-                      }`}
-                    >
-                      Find Out
-                    </button>
-                  </div>
-                  <div className="xl:flex xl:justify-evenly">
-                    <Image
-                      width="50%"
-                      height="50%"
-                      alt="checklist icon"
-                      src="/images/list.jpg"
-                      className=" mx-auto mb-4 md:scale-75 md:mb-0 xl:object-contain xl:-translate-y-3 xl:mr-3"
-                    />
-
-                    <div className="font-bold text-xl text-center mb-7 md:text-lg xl:text-left self-center xl:mx-7 ">
-                      Is money stress stopping you from investing more?
-                    </div>
-                    <button
-                      className={`bg-sky-700 rounded-md text-white px-4 py-2 text-lg font-bold mb-6 md:text-base md:py-2 md:px-3  xl:whitespace-nowrap hover:bg-sky-600   ${
-                        !formSubmitted
-                          ? "cursor-auto hover:bg-sky-700"
-                          : "hover:bg-sky-600 cursor:pointer"
-                      }`}
-                    >
-                      Take Control
-                    </button>
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>
@@ -183,7 +117,7 @@ export default function Results() {
         </div>
         <div>{mill}</div>
       </div>
-      <div className="w-9/12 mx-auto pb-10 lg:w-full">
+      <div className="w-9/12 mx-auto pb-10 lg:w-11/12">
         <h2 className="font-bold text-4xl my-7 md:text-3xl ">What if I...</h2>
         <div className="lg:flex lg:justify-between">
           <div className="pb-5">
@@ -197,9 +131,9 @@ export default function Results() {
             <div className="font-bold text-xl text-gray-700 mb-2 md:text-lg lg:pb-1  xl:pb-0 xl:font-extrabold">
               SAVED AN EXTRA $100 PER MONTH.
             </div>
-            {/* <p className=" text-gray-700 mb-2 font-medium">
+            <p className=" text-gray-700 mb-2 font-medium">
               Adds $100 a month in contributions, but creates
-            </p> */}
+            </p>
             <div className="text-lime-500 font-semibold ">
               <span className="font-bold text-2xl inline md:text-2xl xl:font-extrabold">
                 {`$${investMoney}`}
@@ -218,9 +152,9 @@ export default function Results() {
             <div className="font-bold text-xl text-gray-700 mb-2 md:text-lg xl:font-extrabold">
               GAVE UP DAILY COFFEE PURCHASES.
             </div>
-            {/* <p className="text-gray-700 mb-2 font-medium">
+            <p className="text-gray-700 mb-2 font-medium">
               Adds $128 a month in contributions, but creates
-            </p> */}
+            </p>
             <div className="text-lime-500 font-semibold ">
               <span className="font-bold text-2xl inline md:text-2xl xl:font-extrabold">
                 {" "}
@@ -240,9 +174,9 @@ export default function Results() {
             <div className="font-bold text-xl text-gray-700 mb-2 md:text-lg xl:font-extrabold">
               GAVE UP WEEKLY RESTAURANT VISITS.
             </div>
-            {/* <p className="text-gray-700 mb-2 font-medium">
+            <p className="text-gray-700 mb-2 font-medium">
               Adds $200 a month in contributions, but creates
-            </p> */}
+            </p>
             <div className="text-lime-500 font-semibold ">
               {" "}
               <span className="font-bold text-2xl inline xl:font-extrabold">

@@ -4,13 +4,13 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Image from "next/image";
 export default function NavBar() {
   return (
-    <div className="w-screen py-2 shadow-md  2xl:w-7/12 2xl:mx-auto 2xl:shadow-none">
+    <div className="w-screen py-2 shadow-md 2xl:w-7/12 2xl:mx-auto 2xl:shadow-none">
       <div className="flex xl:hidden">
         <Image
           width="400%"
           height="100%"
           alt="ramsey logo"
-          src="/images/logo.jpg"
+          src="/images/logo.png"
           className="object-contain justify-start left-0 "
         />
         <div className="w-screen justify-end flex">
@@ -29,7 +29,7 @@ export default function NavBar() {
               height="100%"
               alt="ramsey logo"
               src="/images/logo.jpg"
-              className="object-contain scale-125 "
+              className="object-contain  "
             />
           </div>
           <div className="  self-center flex w-9/12 justify-end">
@@ -44,7 +44,7 @@ export default function NavBar() {
             <a className=" text-sky-700 font-bold text-md w-full text-center pt-2 truncate hover:text-sky-400 cursor-pointer hover:underline">
               Sign In
             </a>
-            <button className="text-white bg-sky-700 px-1 rounded-md   -mt-2 ml-6 w-full font-bold 2xl:whitespace-nowrap hover:bg-sky-600 cursor-pointer hover:underline">
+            <button className="text-white bg-sky-700 px-1 rounded-md -mt-2 ml-6 w-full font-bold 2xl:whitespace-nowrap  hover:bg-sky-600 cursor-pointer hover:underline">
               Get Started
             </button>
           </div>
