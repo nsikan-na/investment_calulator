@@ -49,8 +49,23 @@ export default function Investment() {
 
     const data = await response.json();
     setSpinner(false);
-    setDisplayChart(<div className="p-40"></div>);
     if (!data.success) {
+      setDisplayChart(<div className="p-40"></div>);
+      setFormSubmitted(false)
+      setInvestment(0)
+      setInvestMoney(0)
+
+
+      setInvestCoffee(0);
+      setInvestFood(0);
+      setInitialBal(0);
+      setInitialBalPer(0);
+      setGrowth(0);
+      setGrowthPer(0);
+      setContributionsPer(0);
+      setMill('');
+      setYears(0);
+      setContributions(0);
       return setError(data.message);
     }
 
