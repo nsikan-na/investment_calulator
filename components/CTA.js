@@ -102,18 +102,18 @@ export default function CTA() {
               {`But remember—an investment calculator doesn't replace professional
               advice! If you need help with your investments, we recommend
               working with an expert who'll help you understand what you're
-              investing in. If that's your next step, we can help you`}
+              investing in. If that's your next step, we can help you `}
               <span className="underline text-blue-600 hover:text-sky-400 cursor-pointer hover:underline">
                 {`connect with a pro`}
               </span>
-              {`near you.`}
+              {` near you.`}
             </p>
             <div>
               <div className="font-bold text-2xl pb-6 pt-8 xl:text-3xl ">
                 How much money am I really going to need?
               </div>
               <p className="font-medium xl:text-xl">
-               {` The real question is—what do you really want to do? Do you want
+                {` The real question is—what do you really want to do? Do you want
                 to travel the world? Spend more time with your family? Get that
                 beach or mountain house you always dreamed about? C'mon, don't
                 limit yourself!`}
@@ -122,7 +122,7 @@ export default function CTA() {
               <p className="font-medium xl:text-xl">
                 Got your vision?{" "}
                 <span className="underline text-blue-600 hover:text-sky-400 cursor-pointer hover:underline">
-                 {` Figure out how much you'll need to make it a reality`}
+                  {` Figure out how much you'll need to make it a reality`}
                 </span>
                 .
               </p>
