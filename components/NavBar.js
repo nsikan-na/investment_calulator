@@ -28,7 +28,7 @@ export default function NavBar() {
               width="400%"
               height="100%"
               alt="ramsey logo"
-              src="/images/logo.jpg"
+              src="/images/logo.png"
               className="object-contain  "
             />
           </div>
