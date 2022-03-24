@@ -74,7 +74,7 @@ export default async function handler(req, res) {
       if (interestRate > 100) {
         return res.json({
           success: false,
-          message: "Interest Rate can't be greater than 0!",
+          message: "Interest Rate can't be greater than 100!",
         });
       }
       const years = retireAge - curAge;
