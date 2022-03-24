@@ -1,4 +1,4 @@
-# Investment Calculator
+# Rasmey Investment Calculator Clone
 
 ## [Visit Live Site](https://ramsey-investment-calculator.vercel.app/)
 
