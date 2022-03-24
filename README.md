@@ -2,7 +2,11 @@
 
 ## [Visit Live Site](https://ramsey-investment-calculator.vercel.app/)
 
-This is a clone of an investment calculator I use often ([Ramsey Solution Investment Calculator](https://www.ramseysolutions.com/retirement/investment-calculator)).
+This is a clone of an investment calculator I use often ([Ramsey Solution Investment Calculator](https://www.ramseysolutions.com/retirement/investment-calculator)). 
+
+## Why
+- app has many state changes
+- Some numbers are not accurate.
 
 ## Project Focus
 
@@ -14,5 +18,5 @@ This is a clone of an investment calculator I use often ([Ramsey Solution Invest
 
 ## This was build using
 
-- React.js (html,javascript)
+- Next.js (React.js framework)
 - Tailwind.css (css)
