@@ -1,14 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
-import { useRouter } from "next/router";
+import React, { useState, useContext} from "react";
 import { ResultContext } from "../context";
 import { CircularProgress } from "@material-ui/core";
-import Button from "react-bootstrap/Button";
-import Spinner from "react-bootstrap/Spinner";
-import Image from "next/image";
+
 export default function Investment() {
-  const router = useRouter();
   const {
-    investment,
     setYears,
     setInvestment,
     setInvestFood,
@@ -23,7 +18,7 @@ export default function Investment() {
     setDisplayChart,
     setFormSubmitted,
     setMill,
-  } = useContext(ResultContext);
+  }:any = useContext(ResultContext);
   const [error, setError] = useState("");
   const [spinner, setSpinner] = useState(false);
   async function handleForm(e) {
@@ -42,7 +37,7 @@ export default function Investment() {
         monthlyDeposit: e.target.monthlyDeposit.value,
         interestRate: e.target.interestRate.value,
       }),
-      header: {
+      headers: {
         "Content-Type": "application/json",
       },
     });
@@ -54,8 +49,6 @@ export default function Investment() {
       setFormSubmitted(false)
       setInvestment(0)
       setInvestMoney(0)
-
-
       setInvestCoffee(0);
       setInvestFood(0);
       setInitialBal(0);

@@ -1,6 +1,10 @@
 const QuickChart = require("quickchart-js");
+import type { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === "POST") {
     try {
       const { curAge, retireAge, monthlyDeposit, principal, interestRate } =
