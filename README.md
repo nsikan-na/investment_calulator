@@ -19,4 +19,5 @@ This is a clone of an investment calculator I use often ([Ramsey Solution Invest
 ## This was build using
 
 - Next.js (React.js framework)
+- Typescript
 - Tailwind.css (css)
