@@ -7,8 +7,21 @@ export default async function handler(
 ) {
   if (req.method === "POST") {
     try {
-      const { curAge, retireAge, monthlyDeposit, principal, interestRate } =
-        JSON.parse(req.body);
+      const {
+        curAge,
+        retireAge,
+        monthlyDeposit,
+        principal,
+        interestRate,
+      }: {
+        curAge: number;
+        retireAge: number;
+        monthlyDeposit: number;
+        principal: number;
+        interestRate: number;
+      } = JSON.parse(JSON.stringify(req.body));
+
+      //validation for form using guard clauses
       if (
         !curAge ||
         !retireAge ||
@@ -81,43 +94,63 @@ export default async function handler(
           message: "Interest Rate can't be greater than 100!",
         });
       }
-      const years = retireAge - curAge;
+      const years: number = retireAge - curAge;
+      //get years by dividing reitrement age by current age
 
-      const investment =
+      //calculate the estimated investment amount
+      const investment: number =
         principal * Math.pow(1 + interestRate / 100 / 12, 12 * years) +
         monthlyDeposit *
           ((Math.pow(1 + interestRate / 100 / 12, 12 * years) - 1) /
             (interestRate / 100 / 12));
 
-      function calcInvest(amt) {
+      const calcInvest = (amt: number): string => {
+        //calculate the difference in investment amount based when monthly deposit changes
         return Intl.NumberFormat().format(
           Math.ceil(
             principal * Math.pow(1 + interestRate / 100 / 12, 12 * years) +
-              (parseInt(monthlyDeposit) + amt) *
+              (monthlyDeposit + amt) *
                 ((Math.pow(1 + interestRate / 100 / 12, 12 * years) - 1) /
                   (interestRate / 100 / 12)) -
               investment
           )
         );
-      }
+      };
+      // SAVED AN EXTRA $100 PER MONTH(100) value
+      const investMoney: string = calcInvest(100);
 
-      const investMoney = calcInvest(100);
-      const investCoffee = calcInvest(128);
-      const investFood = calcInvest(200);
+      //GAVE UP DAILY COFFEE PURCHASES(128)  value
+      const investCoffee: string = calcInvest(128);
 
-      const initialBal = Intl.NumberFormat().format(Math.ceil(principal));
-      const growth = Intl.NumberFormat().format(
+      //GAVE UP WEEKLY RESTAURANT VISITS(200) value
+      const investFood: string = calcInvest(200);
+
+      //calculate initial bal dollars
+      const initialBal: string = Intl.NumberFormat().format(
+        Math.ceil(principal)
+      );
+
+      //calculate growth dollars
+      const growth: string = Intl.NumberFormat().format(
         Math.ceil(investment - Math.ceil(years * 12 * monthlyDeposit))
       );
-      const contributions = Intl.NumberFormat().format(
+
+      //calculate contributions dollars
+      const contributions: string = Intl.NumberFormat().format(
         Math.ceil((retireAge - curAge) * 12 * monthlyDeposit)
       );
-      const initialBalPer = Math.ceil((principal / Number(investment)) * 100);
-      const contributionsPer = Math.ceil(
+
+      //calculate percent of initial Balance
+      const initialBalPer: number = Math.ceil(
+        (principal / Number(investment)) * 100
+      );
+      //calculate percent of contributions
+      const contributionsPer: number = Math.ceil(
         (((retireAge - curAge) * 12 * monthlyDeposit) / Number(investment)) *
           100
       );
-      const growthPer =
+      //calculate percent of growth
+      const growthPer: number =
         100 -
         (Math.ceil((principal / Number(investment)) * 100) +
           Math.ceil(
@@ -125,10 +158,16 @@ export default async function handler(
               Number(investment)) *
               100
           ));
-      const curYear = new Date().getFullYear();
-      const dataArr = [];
-      const chartYears = [];
+
+      // get the date
+      const curYear: number = new Date().getFullYear();
+
+      // array of investment amounts  for the chart
+      const dataArr: number[] = [];
+      // array of investment amounts  for the chart
+      const chartYears: number[] = [];
       for (let i = 1; i <= years; i++) {
+        //populate the arrays
         dataArr.push(
           Math.ceil(
             principal * Math.pow(1 + interestRate / 100 / 12, 12 * i) +
@@ -140,26 +179,38 @@ export default async function handler(
         chartYears.push(curYear + i);
       }
 
-      const s = dataArr.find((x) => {
-        return x > 1000000;
-      });
-      const y = dataArr.findIndex((x) => {
-        return x === s;
-      });
-      let mill;
-      if (s > 1000000) {
-        mill = `You will be a millionaire in ${y + 1} years. (${
-          new Date().getFullYear() + y + 1
-        }: $${Intl.NumberFormat().format(dataArr[y])})`;
+      //year the user will become a millionaire
+      const millYear: number | undefined = dataArr.find(
+        (year: number): boolean => {
+          return year > 1000000;
+        }
+      );
+
+      //get the index when the user will be a millionaire
+      const millYearIndex: number | undefined = dataArr.findIndex(
+        (year: number): boolean => {
+          return year === millYear;
+        }
+      );
+      let mill: string;
+      //find out is the user will become a millionaire
+      if (millYear && millYear > 1000000) {
+        mill = `You will be a millionaire in ${millYearIndex + 1} years. (${
+          new Date().getFullYear() + millYearIndex + 1
+        }: $${Intl.NumberFormat().format(dataArr[millYearIndex])})`;
       } else {
         mill = "";
       }
-      const colorArr = dataArr.map((data) => {
-        return data === s ? "rgb(2 132 199)" : "rgb(132 204 22)";
+
+      // array of string to show a blue chart for the millionaire year
+      const colorArr: string[] = dataArr.map((data) => {
+        return data === millYear ? "rgb(2 132 199)" : "rgb(132 204 22)";
       });
+
       if (colorArr.length === 0) return;
-      const myChart = new QuickChart();
-      const x = myChart
+
+      // configure the chart
+      const myChart: any = new QuickChart()
         .setConfig({
           type: "bar",
           data: {
@@ -173,7 +224,7 @@ export default async function handler(
                 {
                   ticks: {
                     // Include a dollar sign in the ticks
-                    callback: function (value, index, values) {
+                    callback: function (value: number) {
                       return value > 1000 && value < 1000000
                         ? `$${value / 1000}K`
                         : value === 0
@@ -188,9 +239,10 @@ export default async function handler(
         })
         .setWidth(800)
         .setHeight(400);
+      // fetch the chart
+      const fetchChart: Response = await fetch(myChart.getUrl());
+      const chartURL: string = fetchChart.url;
 
-      const fetchChart = await fetch(x.getUrl());
-      const chartURL = fetchChart.url;
       return res.json({
         success: true,
         investment,

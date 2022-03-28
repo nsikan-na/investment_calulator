@@ -3,18 +3,10 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import Image from "next/image";
 export default function Footer() {
   return (
     <div className="mt-14 pb-20 bg-gray-200 pt-10 md:pb-10 ">
       <div className="xl:flex  xl:mx-auto 2xl:w-7/12">
-        {/* <Image
-          width="400%"
-          height="100%"
-          alt="ramsey logo"
-          src="/images/logo-fade.png"
-          className="w-9/12 mx-auto mb-8 md:w-3/12 md:mb-4r xl:scale-75  "
-        /> */}
         <div className="text-blue-700 text-sm mx-auto w-10/12 text-center font-medium flex flex-wrap justify-evenly space-x-3 md:space-x-1 xl:content-center xl:-space-x-4 xl:-translate-x-20">
           <span className="hover:text-sky-400 cursor-pointer hover:underline">
             Get Started

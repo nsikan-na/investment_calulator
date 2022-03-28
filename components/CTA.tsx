@@ -3,7 +3,7 @@ import { ResultContext } from "../context";
 import Image from "next/image";
 
 export default function CTA() {
-  const { investment, formSubmitted }:any = useContext(ResultContext);
+  const { investment, formSubmitted }: any = useContext(ResultContext);
   return (
     <div className={`2xl:w-7/12 `}>
       <div className="xl:bg-gray-200 2xl:w-screen">

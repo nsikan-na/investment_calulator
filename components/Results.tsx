@@ -17,7 +17,7 @@ export default function Results() {
     displayChart,
     mill,
     formSubmitted,
-  } = useContext(ResultContext);
+  }: any = useContext(ResultContext);
 
   return (
     <div
@@ -38,7 +38,7 @@ export default function Results() {
               <h2 className="font-bold text-4xl pt-10 pb-6" id="result">
                 Your Results
               </h2>
-              <div >
+              <div>
                 <div className="text-gray-500 font-bold text-left xl:flex  xl:pb-5 ">
                   <div className=" xl:self-center ">
                     <div className="xl:text-lg">
@@ -56,7 +56,7 @@ export default function Results() {
                     </p>
                     <div className="pt-0.5 bg-gray-300 my-5 xl:hidden"></div>
                   </div>
-                  <div className>
+                  <div className="">
                     <div className="text-center lg:justify-center lg:text-left">
                       <div className="text-lime-500 font-semibold pb-8">
                         <span className="text-4xl md:text-5xl ">

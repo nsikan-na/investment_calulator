@@ -1,4 +1,4 @@
-import React, { useState, useContext} from "react";
+import React, { useState, useContext } from "react";
 import { ResultContext } from "../context";
 import { CircularProgress } from "@material-ui/core";
 
@@ -18,10 +18,10 @@ export default function Investment() {
     setDisplayChart,
     setFormSubmitted,
     setMill,
-  }:any = useContext(ResultContext);
+  }: any = useContext(ResultContext);
   const [error, setError] = useState("");
   const [spinner, setSpinner] = useState(false);
-  async function handleForm(e) {
+  async function handleForm(e: any) {
     setSpinner(true);
     setDisplayChart(
       <div className="p-40">
@@ -34,7 +34,7 @@ export default function Investment() {
         curAge: e.target.curAge.value,
         retireAge: e.target.retireAge.value,
         principal: e.target.principal.value,
-        monthlyDeposit: e.target.monthlyDeposit.value,
+        monthlyDeposit: +e.target.monthlyDeposit.value,
         interestRate: e.target.interestRate.value,
       }),
       headers: {
@@ -46,9 +46,9 @@ export default function Investment() {
     setSpinner(false);
     if (!data.success) {
       setDisplayChart(<div className="p-40"></div>);
-      setFormSubmitted(false)
-      setInvestment(0)
-      setInvestMoney(0)
+      setFormSubmitted(false);
+      setInvestment(0);
+      setInvestMoney(0);
       setInvestCoffee(0);
       setInvestFood(0);
       setInitialBal(0);
@@ -56,7 +56,7 @@ export default function Investment() {
       setGrowth(0);
       setGrowthPer(0);
       setContributionsPer(0);
-      setMill('');
+      setMill("");
       setYears(0);
       setContributions(0);
       return setError(data.message);
@@ -108,7 +108,7 @@ export default function Investment() {
         onChange={() => {
           setError("");
         }}
-        onSubmit={(e) => {
+        onSubmit={(e: React.FormEvent<EventTarget>) => {
           e.preventDefault();
           handleForm(e);
         }}
