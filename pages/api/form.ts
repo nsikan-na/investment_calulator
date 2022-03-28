@@ -259,7 +259,7 @@ export default async function handler(
         years,
         contributions,
       });
-    } catch (err) {
+    } catch (err: any) {
       console.log(err);
     }
   }
