@@ -25,7 +25,6 @@ export default async function handler(
       if (
         !curAge ||
         !retireAge ||
-        !monthlyDeposit ||
         !principal ||
         !interestRate
       ) {
