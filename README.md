@@ -2,11 +2,7 @@
 
 ## [Visit Live Site](https://ramsey-investment-calculator.vercel.app/)
 
-This is a clone of an investment calculator I use often ([Ramsey Solution Investment Calculator](https://www.ramseysolutions.com/retirement/investment-calculator)). 
-
-## Why
-- App has many state changes
-- Some numbers are not accurate.
+This is a clone of an investment calculator I use often ([Ramsey Solution Investment Calculator](https://www.ramseysolutions.com/retirement/investment-calculator)). The Ramsey Solution Investment Calculator has many state changes which is perfect for react and some numbers are not accurate.
 
 ## Project Focus
 
