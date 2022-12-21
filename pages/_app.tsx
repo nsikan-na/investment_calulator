@@ -28,6 +28,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <meta name="google" content="notranslate" key="notranslate" />
         <meta name="author" content="Nsikan Akpan" />
+        <meta property="og:image" content="/images/logomini.png" />
+        <link rel="icon" href="/images/logomini.png" />
       </Head>
       <Component {...pageProps} />
     </>
